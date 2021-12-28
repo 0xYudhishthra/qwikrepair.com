@@ -1,6 +1,6 @@
 <script type="text/javascript" src="js/navbar.js" defer></script>
 <div class="navbar">
-    <a class="logo" href="">
+    <a class="logo" href="index.php">
         <img class="logo-svg" src="src/logo.svg">
         <div class="logo-word">Qwikrepair</div>
     </a>
