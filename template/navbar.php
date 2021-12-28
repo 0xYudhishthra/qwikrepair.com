@@ -9,7 +9,7 @@
         <a class="services" href="services.php">Services</a>
     </div>
     <div class="btn-access">
-        <a class="btn btn1 login" href="login.php">Login</a>
-        <a class="btn btn2 register" href="register.php">Register</a>
+        <a class="btn btn-white" href="login.php">Login</a>
+        <a class="btn btn-blue" href="register.php">Register</a>
     </div>
 </div>
