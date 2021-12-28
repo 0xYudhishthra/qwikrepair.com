@@ -1,4 +1,4 @@
-<script src="js/navbar.js" defer></script>
+<script type="text/javascript" src="js/navbar.js" defer></script>
 <div class="navbar">
     <a class="logo" href="">
         <img class="logo-svg" src="src/logo.svg">

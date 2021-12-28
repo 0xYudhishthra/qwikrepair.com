@@ -4,6 +4,8 @@
     <?php include "template/header.php" ?>
     <link type="text/css" rel="stylesheet" href="css/navbar.css">
     <link type="text/css" rel="stylesheet" href="css/footer.css">
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/index.js" defer></script>
 </head>
 <body>
     <?php include "template/navbar.php" ?>
