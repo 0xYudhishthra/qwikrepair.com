@@ -1,6 +1,6 @@
 .navbar {
     background-color: white;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     display: grid;
     grid-template-columns: repeat(20, auto);
