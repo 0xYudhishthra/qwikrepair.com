@@ -22,8 +22,6 @@
 
 .navbar .btn-access {
     grid-column: 19 / 20;
-}
-
-.navbar .btn-access * {
-    margin: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
 }

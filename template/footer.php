@@ -3,7 +3,7 @@
         <img class="logo-svg" src="src/logo.svg">
         <div class="logo-word">Qwikrepair</div>
     </a>
-    <div class="email font-small">support@qwikrepair.com</div>
+    <a class="email font-small" href="mailto:suppport@qwikrepair.com">support@qwikrepair.com</a>
     <div class="link-wrapper">
         <a class="link" href="">Home</a>
         <a class="link" href="aboutus.php">About Us</a>

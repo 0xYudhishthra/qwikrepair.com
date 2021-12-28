@@ -33,9 +33,18 @@ body * {
 }
 
 .btn {
+    height: 30px;
+    width: 80px;
+    justify-content: center;
     padding: 5px 15px;
     border: 2px solid #94D1EA;
     border-radius: 6px;
+}
+
+.btn:hover {
+    font-size: 19px;
+    font-weight: bold;
+    transition: 0.1s;
 }
 
 .btn-white {
