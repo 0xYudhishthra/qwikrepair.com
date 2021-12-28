@@ -13,6 +13,7 @@
 
 .navbar .btn-navigation * {
     margin: 0 15px;
+    cursor: pointer;
 }
 
 .navbar .btn-navigation *:hover {
