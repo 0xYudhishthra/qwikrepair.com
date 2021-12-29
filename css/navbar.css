@@ -1,0 +1,28 @@
+.navbar {
+    background-color: white;
+    width: 100vw;
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(20, auto);
+    grid-template-rows: 100%;
+}
+
+.navbar .btn-navigation {
+    grid-column: 12 / 15;
+}
+
+.navbar .btn-navigation * {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.navbar .btn-navigation *:hover {
+    border-bottom: 1.5px solid black;
+    transition: 0.1s;
+}
+
+.navbar .btn-access {
+    grid-column: 19 / 20;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
