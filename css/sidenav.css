@@ -1,0 +1,32 @@
+/* Presentation of the sidebar menu */
+.sidenav {
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/*Presentation of the navigation menu links*/
+.sidenav a{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+/*Links changes colour upon hovering over them*/
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+/*Presentation of page content*/
+.main{
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+    background-color: #F6F8FE;
+}
