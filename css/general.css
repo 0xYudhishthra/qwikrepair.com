@@ -33,8 +33,9 @@ body * {
 }
 
 .btn {
-    height: 30px;
-    width: 80px;
+    margin: 0 15px;
+    height: 40px;
+    width: 90px;
     justify-content: center;
     padding: 5px 15px;
     border: 2px solid #94D1EA;

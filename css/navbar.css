@@ -18,8 +18,9 @@
 }
 
 .navbar .btn-navigation *:hover {
-    border-bottom: 1.5px solid black;
+    border-bottom: 1.5px solid #94D1EA;
     transition: 0.1s;
+    color: #94D1EA;
 }
 
 .navbar .btn-access {
