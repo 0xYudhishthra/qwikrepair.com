@@ -1,4 +1,6 @@
 <script type="text/javascript" src="js/navbar.js" defer></script>
+<script type="text/javascript" src="js/eventListener.js"></script>
+
 <div class="navbar">
     <a class="logo" href="index.php">
         <img class="logo-svg" src="src/logo.svg">
@@ -11,7 +13,7 @@
         <a id="faq"href="faq.php">FAQ</a>
     </div>
     <div class="btn-access">
-        <a class="btn btn-white" href="login.php">Login</a>
-        <a class="btn btn-blue" href="register.php">Register</a>
+        <button class="login btn btn-white">Login</button>
+        <button class="signup btn btn-blue">Signup</button>
     </div>
 </div>
