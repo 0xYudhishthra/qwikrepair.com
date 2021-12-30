@@ -36,8 +36,9 @@ body * {
     margin: 0 15px;
     height: 40px;
     width: 90px;
+    font-size: 18px;
+    display: flex;
     justify-content: center;
-    padding: 5px 15px;
     border: 2px solid #94D1EA;
     border-radius: 6px;
 }
@@ -56,6 +57,14 @@ body * {
 .btn-blue {
     color: white;
     background: #94D1EA;
+}
+
+.btn-white:hover {
+    color: #94D1EA;
+}
+
+.btn-blue:hover {
+    color: white;
 }
 
 .font-title {
