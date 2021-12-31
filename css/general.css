@@ -26,6 +26,10 @@ body * {
     white-space: nowrap;
 }
 
+a, a:hover {
+    color: inherit;
+}
+
 .logo {
     align-items: center;
     grid-column: 2 / 3;
@@ -52,9 +56,9 @@ body * {
 }
 
 .btn:hover {
-    font-size: 19px;
+    /* font-size: 19px; */
     font-weight: bold;
-    transition: 0.1s;
+    transition-duration: 0.1s;
 }
 
 .btn-white {
