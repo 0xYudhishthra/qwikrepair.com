@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <title>Login</title>
-  <!-- <?php include "template/header.php" ?> -->
-  <style>
+<html lang="en">
+    <head>
+        <title>Signup</title>
+        <!-- <?php include "template/header.php" ?> -->
+    <script src="js/login.js" defer></script>
+    <style>
     h1{
-      text-align: center;
-      margin-top: 50px;
-      font-size: 2.5em;
+        text-align: center;
+        margin-top: 50px;
     }
-    button{
-      width: 150px;
-      height: 80px;
-      font-size: 1.2rem;
-      margin-top: 10%;
+    div{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
     }
-    section{
-      text-align: center;
-  }
-
-  </style>
-</head>
-<body>
-  <h1>Login</h1>
-  <section><button class="login-btn">Login</button></section>
-  <script src="./eventListener.js"></script>
-</body>
-</html>
+    form{
+        width: 60vw;
+        margin: auto;
+    }
+    </style>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form onsubmit="return false;">
+            <div><label>Email</label><input type="email" name="email"></div>
+            <div><label for="">Password</label><input type="password" name="pwd"></div>
+            <div><input type="hidden" name="request-type" value="login"></div>
+            <div><input type="submit" value="Login"></div>
+        </form>
+    </body>
