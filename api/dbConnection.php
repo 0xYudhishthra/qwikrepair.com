@@ -2,18 +2,17 @@
 
 // Declare parameters to connect to database
 $host = "localhost:3306";
-$database = "qwikrepairDB";
+$database = "qwikrepairdb";
 $user = "root";
 $password = "";
 
 //Establish connection to database
 $conn = new mysqli($host, $user, $password, $database);
 
-if ($conn->connect_errno) {
-    http_response_code(400);
-    header("Content-Type: text/plain");
-  echo $conn -> connect_error;
-  exit();
-}
+// Verify connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+// echo "Connected successfully";
 
 ?> 
