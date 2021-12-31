@@ -1,6 +1,7 @@
 /* Presentation of the sidebar menu */
 .sidenav {
     width: 160px;
+    height: 50px;
     position: fixed;
     z-index: 1;
     top: 0;
