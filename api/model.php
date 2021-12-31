@@ -52,45 +52,30 @@ function signup($conn){
     }
     
     // Check if the email is already in use
-    $sql = "SELECT * FROM $role WHERE emailAddress = '$email'";
+    $sql = "SELECT * FROM user WHERE emailAddress = '$email'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
         http_response_code(400);
         echo "Email already in use";
         exit();
     }
-
-    // Generate random seniorID/technicianID
-    $userID = uniqid(5);
-
-    //Create username from email address
-    $loginUsername=strstr($email,'@',true);
     
-    // Insert the user into the appropriate user database
-    $sql_userDB = "INSERT INTO $role (seniorID, street, city, state, postcode, phoneNumber, emailAddress, DOB, firstName, lastName) 
-            VALUES (?,?,?,?,?,?,?,?,?,?)";
-    //Determine user role to know which table to insert into
-    if ($role == "senior"){
-        $sql_loginDetailsDB = "INSERT INTO login_details (loginUsername, password, seniorID) VALUES (?,?,?)";
-    } else {
-        $sql_loginDetailsDB = "INSERT INTO login_details (loginUsername, password, technicianID) VALUES (?,?,?)";
-    }
-    $stmt_userDB = $conn -> stmt_init();
-    $stmt_loginDetailsDB = $conn -> stmt_init();
+    // Insert the user into the user database
+    $sql_userDB = "INSERT INTO user (role, street, city, state, postcode, phoneNumber, emailAddress, password, DOB, firstName, lastName) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
-    if (!($stmt_userDB -> prepare($sql_userDB) && $stmt_loginDetailsDB -> prepare($sql_loginDetailsDB))) {
+    $stmt_userDB = $conn -> stmt_init();
+
+    if (!$stmt_userDB -> prepare($sql_userDB)) {
         http_response_code(400);
         echo "Error: " . $sql . "<br>" . $conn->error;
         exit();
     } else {
-        $stmt_userDB -> bind_param('ssssssssss', $userID, $street, $city, $state, $postcode, $pNumber, $email, $dob, $firstName, $lastName);
+        $stmt_userDB -> bind_param('ssssiisssss', $role, $street, $city, $state, $postcode, $pNumber, $email, $pwd, $dob, $firstName, $lastName);
         $stmt_userDB -> execute();
-        $stmt_loginDetailsDB -> bind_param('ssi', $loginUsername, $pwd, $userID);
-        $stmt_loginDetailsDB -> execute();
     }
   
-
-    if ($stmt_userDB -> affected_rows > 0 && $stmt_loginDetailsDB -> affected_rows > 0){
+    if ($stmt_userDB -> affected_rows > 0){
         http_response_code(200);
         echo "Successfully registered";
     exit();
