@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <title>Login</title>
-  <!-- <?php include "template/header.php" ?> -->
+  <?php include "template/header.php" ?>
+  <title>Qwikrepair - Login</title>
+  <link type="text/css" rel="stylesheet" href="css/navbar.css">
+  <link type="text/css" rel="stylesheet" href="css/footer.css">
   <style>
     h1{
       text-align: center;
@@ -22,8 +24,9 @@
   </style>
 </head>
 <body>
+  <?php include "template/navbar.php" ?>
   <h1>Login</h1>
   <section><button class="login-btn">Login</button></section>
-  <script src="./eventListener.js"></script>
+  <?php include "template/navbar.php" ?>
 </body>
 </html>
