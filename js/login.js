@@ -3,7 +3,6 @@ passwordInput = document.getElementById('password');
 
 if ((passwordHide != null) && (passwordInput != null)) {
     passwordHide.addEventListener('click', () => {
-        console.log(passwordInput.getAttribute('type'))
         if (passwordInput.getAttribute('type') == 'password') {
             passwordInput.setAttribute('type', 'text');
             passwordHide.setAttribute('src', 'src/eye.svg');

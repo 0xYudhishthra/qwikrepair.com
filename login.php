@@ -16,17 +16,15 @@
             </div>
             <div class="font font-title title">Login</div>
             <form class="form" onsubmit="return false;">
-                <div class="form-input">
-                    <label class="font font-medium label">Email</label>
-                    <input class="email-input" type="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-input">
-                    <label class="font font-medium label">Password</label>
+                <label class="font font-medium label">Email</label>
+                <input class="email-input" type="email" name="email" placeholder="Email">
+                <label class="font font-medium label">Password</label>
+                <div class="password-wrapper">
                     <input id="password" class="password-input" type="password" name="pwd" placeholder="Password">
                     <img id="password-hide" class="password-hide" src="src/eye-crossed.svg">
                 </div>
-                <div><input type="hidden" name="request-type" value="login"></div>
-                <div><input class="btn btn-blue" type="submit" value="Login"></div>
+                    <div><input type="hidden" name="request-type" value="login"></div>
+                <div><input class="btn btn-blue login-btn" type="submit" value="Login"></div>
             </form>
         </div>
         <?php include "template/footer.php" ?>
