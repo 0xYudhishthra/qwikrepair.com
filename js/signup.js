@@ -2,7 +2,7 @@ const signup = document.querySelector('input[type="submit"]');
 var httpStatus
 signup.addEventListener('click', () => {
     const formData = new FormData(document.querySelector('form'));
-    fetch('http://localhost:8080/model.php', {
+    fetch('api/model.php', {
         method: 'POST',
         body: formData
     })

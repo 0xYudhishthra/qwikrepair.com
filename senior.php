@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Senior Dashboard</title>
-        <?php include "template/header.php" ?>
+        <!-- <?php include "template/header.php" ?> -->
         <link rel="icon" type="image/x-icon" href="src/logo.svg">
         <link type="text/css" rel="stylesheet" href="css/sidenav.css">
         <link type="text/css" rel="stylesheet" href="css/seniorHompage.css">

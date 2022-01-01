@@ -1,13 +1,20 @@
-const login = document.querySelector('input[type="submit"]');
-var status 
+const Login = document.querySelector('input[type="submit"]');
+var httpStatus 
 
-// login.addEventListener('click', () => {
-//     const formData = new formData(document.querySelector('form'));
-//     fetch('http://localhost:8080/model.php', {
-//         method: 'POST',
-//         body: formData
-//     })
-//     .then (response => {
-//         status = response.status;
-//         return response.text();
-//     }) 
+Login.addEventListener('click', () => {
+    const formData = new FormData(document.querySelector('form'));
+    fetch('api/model.php', {
+        method: 'POST',
+        body: formData,
+        credentials:'include'
+    })
+    .then (response => {
+        httpStatus = response.status
+        return response.text();
+    })
+    .then(data => {
+        alert(data)
+        if (httpStatus === 200) 
+            location.href = 'index.php'
+        })
+        .catch(error => { alert(error) })})

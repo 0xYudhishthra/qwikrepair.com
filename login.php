@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <?php include "template/header.php" ?>
+  <!-- <?php include "template/header.php" ?> -->
   <title>Qwikrepair - Login</title>
   <link type="text/css" rel="stylesheet" href="css/navbar.css">
   <link type="text/css" rel="stylesheet" href="css/footer.css">
+  <script src="js/login.js" defer></script>
   <style>
     h1{
         text-align: center;

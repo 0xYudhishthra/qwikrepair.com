@@ -1,20 +1,22 @@
 <?php
 // This file is used to handle login, signup and register requests.
 
-header("Access-Control-Allow-Origin: 127.0.0.1");
+header("Access-Control-Allow-Origin: http://localhost");
 header("Access-Control-Allow-Credentials: true");
 
 include_once "./dbConnection.php";
 include_once "./errorHandler.php";
 
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'signup')
     signup($conn);
 
-// if ($_SERVER['REQUEST_METHOD'] == "GET")
-//     logout($conn);
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['request-type'])) {
+    logout($conn);
 
-// if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action'] == "login")
-//     login($conn);
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
+    login($conn);
 
 function signup($conn){
     // Get the data from the request
@@ -118,19 +120,10 @@ function login($conn){
         $result = $conn->query($sql);
         $row = mysqli_fetch_assoc($result);
         $role = $row['role'];
-        if ($role == "senior"){
-            http_response_code(200);
-            echo "./senior.php";
-        }
-        else if ($role == "technician"){
-            http_response_code(200);
-            echo "./technician.php";
-        }
-        else {
-            errorHandler(500, "Internal server error");
-        }
-    }
-    else {
+        $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role;
+        errorHandler(200, "Hola ". $_SESSION['email']);
+    } else {
         errorHandler(400, "Incorrect password");
     }
     

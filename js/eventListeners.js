@@ -14,9 +14,16 @@ if (login != null) {
 
 if (logout != null) {
   logout.addEventListener('click', () => {
-    location.href = './logout.php';
-})
-}
+    fetch ('api/model.php', {
+      credentials: 'include',
+      method: 'POST',
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert(data);
+    location.href = './index.php';
+  })
+  .catch(err => {alert(err)})
 
 if (signup != null) {
   signup.addEventListener('click', () => {
