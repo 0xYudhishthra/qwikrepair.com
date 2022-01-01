@@ -5,12 +5,20 @@
     width: 100vw;
     height: 50px;
     display: grid;
-    grid-template-columns: repeat(20, auto);
+    grid-template-columns: repeat(20, 5vw);
     grid-template-rows: 100%;
 }
 
+.navbar * {
+    justify-content: center;
+}
+
+.logo {
+    grid-column: 1 / 5;
+}
+
 .navbar .btn-navigation {
-    grid-column: 12 / 15;
+    grid-column: 8 / 14;
 }
 
 .navbar .btn-navigation * {
@@ -25,7 +33,7 @@
 }
 
 .navbar .btn-access {
-    grid-column: 19 / 20;
+    grid-column: 17 / -1;
     display: grid;
     grid-template-columns: repeat(2, auto);
 }

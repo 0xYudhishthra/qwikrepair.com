@@ -30,11 +30,6 @@ a, a:hover {
     color: inherit;
 }
 
-.logo {
-    align-items: center;
-    grid-column: 2 / 3;
-}
-
 .logo .logo-svg {
     height: 35px;
 }
