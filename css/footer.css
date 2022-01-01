@@ -27,6 +27,7 @@ footer .link-wrapper {
     grid-column: 10 / -1;
     grid-row: 5;
     height: 30px;
+    flex-direction: row;
 }
 
 .link-wrapper * {

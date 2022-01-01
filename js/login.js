@@ -1,7 +1,23 @@
-const Login = document.querySelector('input[type="submit"]');
-var httpStatus 
+passwordHide = document.getElementById('password-hide');
+passwordInput = document.getElementById('password');
 
-Login.addEventListener('click', () => {
+if ((passwordHide != null) && (passwordInput != null)) {
+    passwordHide.addEventListener('click', () => {
+        console.log(passwordInput.getAttribute('type'))
+        if (passwordInput.getAttribute('type') == 'password') {
+            passwordInput.setAttribute('type', 'text');
+            passwordHide.setAttribute('src', 'src/eye.svg');
+        } else {
+            passwordInput.setAttribute('type', 'password');
+            passwordHide.setAttribute('src', 'src/eye-crossed.svg');
+        } // else
+    }) //eventListener
+} //if != null
+
+
+const login = document.querySelector('input[type="submit"]');
+
+login.addEventListener('click', () => {
     const formData = new FormData(document.querySelector('form'));
     fetch('api/model.php', {
         method: 'POST',
@@ -15,6 +31,6 @@ Login.addEventListener('click', () => {
     .then(data => {
         alert(data)
         if (httpStatus === 200) 
-            location.href = 'index.php'
+            location.href = 'login.php'
         })
         .catch(error => { alert(error) })})

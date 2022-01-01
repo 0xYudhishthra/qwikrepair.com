@@ -12,7 +12,7 @@
         <a id="faq" href="faq.php">FAQ</a>
     </div>
     <div id="btnAccess" class="btn-access">
-        <a id="login" class="btn btn-white">Login</a>
-        <a id="signup" class="btn btn-blue">Signup</a>
+        <a id="login" class="btn btn-white" href="login.php">Login</a>
+        <a id="signup" class="btn btn-blue" href="signup.php">Signup</a>
     </div>
 </div>
