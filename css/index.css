@@ -1,0 +1,98 @@
+.highlight {
+    color: #94D1EA;
+}
+
+.welcome-wrap {
+    height: calc(100vh - 50px);
+    background-image: url("../src/welcome.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+}
+
+.welcome-ctn-wrap {
+    height: fit-content;
+    width: 100%;
+    padding: 75px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+}
+
+.welcome-ctn-title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 1;
+}
+
+.welcome-ctn-desc {
+    grid-column: 1 / 1;
+    grid-row: 2 / -1;
+    margin-top: 25px;
+}
+
+.welcome-ctn-btn {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+    margin: 0 25%;
+    width: fit-content;
+    padding: 5px;
+}
+
+.line {
+    height: 1.5px;
+    width: 800px;
+    background-color: grey;
+}
+
+.service-wrap {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-wrap .img {
+    height: 300px;
+    width: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6px;
+    margin-right: 250px;
+}
+
+.service-1-img {
+    background-image: url(../src/service-1.jpg);
+    background-position: left !important; 
+}
+
+.service-2-img {
+    background-image: url(../src/service-2.jpg);
+    margin-left: 200px;
+    margin-right: 0 !important;
+}
+
+.service-3-img {
+    background-image: url(../src/service-3.jpg);
+}
+
+.service {
+    padding: 100px;
+}
+
+.service-2 {
+    flex-direction: row-reverse;
+}
+
+.get-start-wrap {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.get-start-btn {
+    margin-left: 100px;
+    width: fit-content;
+}

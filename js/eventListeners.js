@@ -12,21 +12,23 @@ if (login != null) {
   })
 }
 
-if (logout != null) {
-  logout.addEventListener('click', () => {
-    fetch ('api/model.php', {
-      credentials: 'include',
-      method: 'POST',
-  })
-  .then(res => res.text())
-  .then(data => {
-    alert(data);
-    location.href = './index.php';
-  })
-  .catch(err => {alert(err)})
-
 if (signup != null) {
   signup.addEventListener('click', () => {
     location.href = './signup.php';
   })
 }
+
+if (logout != null) {
+  logout.addEventListener('click', () => {
+    fetch('api/model.php', {
+      credentials: 'include',
+      method: 'POST'
+    }) //fetch
+    .then(res => res.text())
+    .then(data => {
+      alert(data);
+      location.href = "index.php";
+    }) //then(data)
+    .catch(err => {alert(err)})
+  }) //eventListener
+} //if not null
