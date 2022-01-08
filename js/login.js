@@ -30,6 +30,6 @@ login.addEventListener('click', () => {
     .then(data => {
         alert(data)
         if (httpStatus === 200) 
-            location.href = 'login.php'
+            location.href = 'index.php'
         })
         .catch(error => { alert(error) })})
