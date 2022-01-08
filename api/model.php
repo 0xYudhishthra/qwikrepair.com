@@ -157,8 +157,5 @@ function logout($conn){
     setcookie("userID", "", time() - 3600, "/");
     setcookie("role", "", time() - 3600, "/");
     setcookie("firstName", "", time() - 3600, "/");
-}
-
-
-
+}  
 ?>

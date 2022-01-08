@@ -1,33 +1,10 @@
-/* Presentation of the sidebar menu */
-.sidenav {
-    width: 160px;
-    height: 50px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #FFFFFF;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-/*Presentation of the navigation menu links*/
-.sidenav a{
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-}
-
-/*Links changes colour upon hovering over them*/
-.sidenav a:hover{
-    color: #f1f1f1;
-}
-
-/*Presentation of page content*/
-.main{
-    margin-left: 160px; /* Same as the width of the sidenav */
-    padding: 0px 10px;
-    background-color: #F6F8FE;
-}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+  }
