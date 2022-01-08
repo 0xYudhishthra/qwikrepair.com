@@ -12,7 +12,7 @@ session_start();
 if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'signup')
     signup($conn);
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['request-type'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['request-type']))
     logout($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
