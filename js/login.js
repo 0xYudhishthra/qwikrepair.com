@@ -32,4 +32,13 @@ login.addEventListener('click', () => {
         if (httpStatus === 200) 
             location.href = 'index.php'
         })
-        .catch(error => { alert(error) })})
+        .then (response => {
+            httpStatus = response.status
+            return response.text();
+        })
+        .then(data => {
+            alert(data)
+            if (httpStatus === 200) 
+                location.href = 'login.php'
+            })
+            .catch(error => { alert(error) })})
