@@ -19,7 +19,7 @@ var login = document.querySelector('input[type="submit"]');
 if (login != null) {
     login.addEventListener('click', () => {
         const formData = new FormData(document.querySelector('form'));
-        fetch('api/model.php', {
+        fetch('api/crudHandler.php', {
             method: 'POST',
             body: formData,
             credentials:'include'
@@ -34,23 +34,3 @@ if (login != null) {
                 location.href = 'index.php'
             })
             .catch(error => { alert(error) })})}
-
-
-// if (login != null) {
-//     login.addEventListener('click', () => {
-//         const formData = new FormData(document.querySelector('form'));
-//         fetch('api/model.php', {
-//             method: 'POST',
-//             body: formData,
-//             credentials:'include'
-//         })
-//         .then (response => {
-//             httpStatus = response.status
-//             return response.text();
-//         })
-//         .then(data => {
-//             alert(data)
-//             if (httpStatus === 200) 
-//                 location.href = 'login.php'
-//             })
-//             .catch(error => { alert(error) })})}

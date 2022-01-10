@@ -32,7 +32,7 @@ if ((rptPasswordHide != null) && (rptPasswordInput != null)) {
 if (signup != null) {
     signup.addEventListener('click', () => {
         const formData = new FormData(document.querySelector('form'));
-        fetch('api/model.php', {
+        fetch('api/crudHandler.php', {
             method: 'POST',
             body: formData,
             credentials:'include'

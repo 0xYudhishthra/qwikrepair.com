@@ -18,7 +18,7 @@ if (signup != null) {
 
 if (logout != null) {
   logout.addEventListener('click', () => {
-    fetch('api/model.php', {
+    fetch('api/crudHandler.php', {
       credentials: 'include',
       method: 'POST'
     }) //fetch

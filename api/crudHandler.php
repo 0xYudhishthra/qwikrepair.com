@@ -1,5 +1,5 @@
 <?php
-// This file is used to handle login, signup and register requests.
+// This file is used to handle CRUD requests on the Database.
 
 header("Access-Control-Allow-Origin: http://localhost");
 header("Access-Control-Allow-Credentials: true");
@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['request-type']))
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
     login($conn);
+
+
 
 function signup($conn){
     // Get the data from the request
