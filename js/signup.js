@@ -1,7 +1,9 @@
-passwordHide = document.getElementById('password-hide');
-passwordInput = document.getElementById('password');
-rptPasswordHide = document.getElementById('rptPassword-hide');
-rptPasswordInput = document.getElementById('rptPassword');
+var passwordHide = document.getElementById('password-hide');
+var passwordInput = document.getElementById('password');
+var rptPasswordHide = document.getElementById('rptPassword-hide');
+var rptPasswordInput = document.getElementById('rptPassword');
+var signup = document.querySelector('input[type="submit"]');
+var httpStatus;
 
 if ((passwordHide != null) && (passwordInput != null)) {
     passwordHide.addEventListener('click', () => {
@@ -27,24 +29,22 @@ if ((rptPasswordHide != null) && (rptPasswordInput != null)) {
     }) //eventListener
 } //if != null
 
-const signup = document.querySelector('input[type="submit"]');
-var httpStatus
-signup.addEventListener('click', () => {
-    window.alert("F U Cibai");
-    // const formData = new FormData(document.querySelector('form'));
-    // fetch('api/model.php', {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    // .then(res => {
-    //     httpStatus = res.status;
-    //     return res.text();
-    // }) 
-    // .then(data => {
-    //     alert(data);
-    //     if (httpStatus === 200) 
-    //         location.href = 'signup.php';
-    // }) // status 200
-    // .catch(err => {alert(err)})
-}); //eventListener
+if (signup != null) {
+    signup.addEventListener('click', () => {
+        const formData = new FormData(document.querySelector('form'));
+        fetch('api/model.php', {
+            method: 'POST',
+            body: formData,
+            credentials:'include'
+        })
+        .then (response => {
+            httpStatus = response.status
+            return response.text();
+        })
+        .then(data => {
+            alert(data)
+            if (httpStatus === 200) 
+                location.href = 'login.php'
+            })
+            .catch(error => { alert(error) })})}
 

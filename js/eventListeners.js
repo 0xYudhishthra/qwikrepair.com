@@ -1,9 +1,7 @@
-// This file stores all event listeners used for the entire website.
-
 // Get references to the DOM elements
-const login = document.getElementById('login');
-const logout = document.getElementById('logout');
-const signup = document.getElementById('signup');
+var login = document.getElementById('login');
+var logout = document.getElementById('logout');
+var signup = document.getElementById('signup');
 
 //Redirect button 'click' event listeners
 if (login != null) {

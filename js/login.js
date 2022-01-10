@@ -1,5 +1,5 @@
-passwordHide = document.getElementById('password-hide');
-passwordInput = document.getElementById('password');
+var passwordHide = document.getElementById('password-hide');
+var passwordInput = document.getElementById('password');
 
 if ((passwordHide != null) && (passwordInput != null)) {
     passwordHide.addEventListener('click', () => {
