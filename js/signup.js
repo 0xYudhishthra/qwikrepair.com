@@ -13,9 +13,9 @@ if ((passwordHide != null) && (passwordInput != null)) {
         } else {
             passwordInput.setAttribute('type', 'password');
             passwordHide.setAttribute('src', 'src/eye-crossed.svg');
-        } // else
-    }) //eventListener
-} //if != null
+        } 
+    }) 
+} 
 
 if ((rptPasswordHide != null) && (rptPasswordInput != null)) {
     rptPasswordHide.addEventListener('click', () => {
@@ -25,9 +25,9 @@ if ((rptPasswordHide != null) && (rptPasswordInput != null)) {
         } else {
             rptPasswordInput.setAttribute('type', 'password');
             rptPasswordHide.setAttribute('src', 'src/eye-crossed.svg');
-        } // else
-    }) //eventListener
-} //if != null
+        } 
+    }) 
+} 
 
 if (signup != null) {
     signup.addEventListener('click', () => {
@@ -46,5 +46,6 @@ if (signup != null) {
             if (httpStatus === 200) 
                 location.href = 'login.php'
             })
-            .catch(error => { alert(error) })})}
+            .catch(error => { alert(error) })})
+}
 

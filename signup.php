@@ -16,22 +16,6 @@
             </div>
             <div class="font font-title title">Signup</div>
             <form class="form" onsubmit="return false;">
-                <!-- <label>First Name</label>
-                <input type="text" name="firstName" placeholder="First Name">
-                <label>Last Name</label>
-                <input type="text" name="lastName" placeholder="Last Name">
-                <label>Phone Number</label>
-                <input type="tel" pattern="[0-9]{10}" name="pNumber" placeholder="E.g. 0112334567">
-                <label>Date of Birth</label>
-                <input type="date" name="dob" placeholder="Date Of Birth">
-                <label>Street</label>
-                <input type="text" name="street" placeholder="Street">
-                <label>City</label>
-                <input type="text" name="city" placeholder="City">
-                <label>State</label>
-                <input type="text" name="state" placeholder="State">
-                <label>Postcode</label>
-                <input type="text" name="postcode" pattern="[0-9]{5}" placeholder="E.g. 45678"> -->
                 <label class="font font-medium label">Email</label>
                 <input class="input" type="email" name="email" placeholder="Email">
                 <label class="font font-medium label">Password</label>

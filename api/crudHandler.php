@@ -22,22 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
 
 function signup($conn){
     // Get the data from the request
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $pNumber = $_POST['pNumber'];
-    $street = $_POST['street'];
-    $city = $_POST['city'];
-    $state = $_POST['state'];
-    $postcode = $_POST['postcode'];
     $email = $_POST['email'];
     $pwd = $_POST['pwd'];
     $repeatPwd = $_POST['repeatPwd'];
     $role = $_POST['role'];
-    $dob = $_POST['dob'];
 
     // Check if there are any empty fields
-    if(empty($firstName) || empty($lastName) || empty($pNumber) || empty($street) || empty($city) || empty($state) || empty($postcode) || empty($email) || empty($pwd) || empty($repeatPwd) || empty($role) || empty($dob)){
-        errorHandler(400, "Please fill in all fields");
+    if (empty($email) || empty($pwd) || empty($repeatPwd) || empty($role)){
+        errorHandler(400, "Please fill in all fields.");
     }
     
     // Check if the passwords match
@@ -62,15 +54,15 @@ function signup($conn){
     }
     
     // Insert the user into the user database
-    $sql_userDB = "INSERT INTO user (role, street, city, state, postcode, phoneNumber, emailAddress, password, DOB, firstName, lastName) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    $sql_userDB = "INSERT INTO user (role, emailAddress, password) 
+            VALUES (?,?,?)";
 
     $stmt_userDB = $conn -> stmt_init();
 
     if (!$stmt_userDB -> prepare($sql_userDB)) {
         errorHandler(500, "Internal server error");
     } else {
-        $stmt_userDB -> bind_param('ssssiisssss', $role, $street, $city, $state, $postcode, $pNumber, $email, $pwd, $dob, $firstName, $lastName);
+        $stmt_userDB -> bind_param('sss', $role, $email, $pwd);
         $stmt_userDB -> execute();
     }
   
