@@ -29,7 +29,7 @@
                     <img id="rptPassword-hide" class="password-hide" src="src/eye-crossed.svg">
                 </div>
                 <label class="font font-medium label">Role</label>
-                <select name="role">
+                <select name="role" class="font font-medium input">
                     <option value="senior">Senior</option>
                     <option value="technician">Technician</option>
                 </select>
