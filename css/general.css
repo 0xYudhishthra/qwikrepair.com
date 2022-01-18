@@ -20,7 +20,6 @@ body * {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     text-decoration: none;
-    color: back;
     display: flex;
     align-items: center;
     white-space: nowrap;

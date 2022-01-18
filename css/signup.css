@@ -57,7 +57,7 @@
     transition: 0.2s;
 }
 
-.form input:focus {
+.form input:focus, .form input:active {
     border: 2px solid #94D1EA;
     box-shadow: 0 0 5px #94D1EA;
 }
