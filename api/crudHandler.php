@@ -115,8 +115,18 @@ function login($conn){
         $row = mysqli_fetch_assoc($result);
         $role = $row['role'];
         $_SESSION['email'] = $email;
-        $_SESSION['role'] = $role;
-        errorHandler(200, "Hola ". $_SESSION['email']);
+        http_response_code(200);
+        switch ($role) {
+            case 'senior':
+                echo "senior";
+                break;
+            case 'technician':
+                echo "technician";
+                break;
+            default:
+                errorHandler(500, "Internal server error");
+                break;
+        }
     } else {
         errorHandler(400, "Incorrect password");
     }

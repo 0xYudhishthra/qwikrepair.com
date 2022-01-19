@@ -15,6 +15,7 @@ if ((passwordHide != null) && (passwordInput != null)) {
 
 
 var login = document.querySelector('input[type="submit"]');
+var httpStatus;
 
 if (login != null) {
     login.addEventListener('click', () => {
@@ -24,13 +25,16 @@ if (login != null) {
             body: formData,
             credentials:'include'
         })
-        .then (response => {
-            httpStatus = response.status
-            return response.text();
+        .then (res => {
+            httpStatus = res.status
+            return res.text();
         })
         .then(data => {
-            alert(data)
-            if (httpStatus === 200) 
-                location.href = 'index.php'
+            if (httpStatus === 200 && data.match(/senior/))
+                location.href = 'seniorHomepage.php'
+            else if (httpStatus === 200 && data.match(/technician/))
+                location.href = 'technicianHomepage.php'
+            else
+                alert("Internal server error")
             })
             .catch(error => { alert(error) })})}
