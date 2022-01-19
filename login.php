@@ -23,6 +23,10 @@
                     <input id="password" class="password-input" type="password" name="pwd" placeholder="Password">
                     <img id="password-hide" class="password-hide" src="src/eye-crossed.svg">
                 </div>
+                <div class="remember-me-wrapper">
+                    <input id="remember-me" type="checkbox" name="remember-me">
+                    <label class="font font-medium label" for="remember-me">Remember me</label>
+                </div>
                     <div><input type="hidden" name="request-type" value="login"></div>
                 <div><input class="btn btn-blue login-btn" type="submit" value="Login"></div>
             </form>
