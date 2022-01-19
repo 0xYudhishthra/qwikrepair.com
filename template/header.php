@@ -6,3 +6,4 @@
 <link rel="icon" type="image/x-icon" href="src/logo.svg">
 <link type="text/css" rel="stylesheet" href="css/general.css">
 <script src="js/general.js" defer></script>
+<script type="text/javascript" src="js/eventListeners.js" defer></script>

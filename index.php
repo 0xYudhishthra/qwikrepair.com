@@ -14,7 +14,7 @@
       <div class="welcome-ctn-wrap">
         <div class="font font-title welcome-ctn-title"><span class="font font-title highlight">Seamless&nbsp;</span>home repair appointment service.</div>
         <div class="font font-text welcome-ctn-desc">Connecting peoples in-need to publics that volunteered to help.</div>
-        <div class="btn btn-blue welcome-ctn-btn"><a class="font-large" href="api/signup.php">Get Started</a></div>    
+        <div class="btn btn-blue welcome-ctn-btn"><a class="font-large" href="signup.php">Get Started</a></div>    
       </div>  <!-- welcome-ctn-wrap -->
     </div>  <!-- welcome-wrap --> 
     <div class="service-wrap">
@@ -35,7 +35,7 @@
     </div> <!-- service-wrap -->
     <div class="get-start-wrap">
       <div class="font font-medium get-start-text">Helping each other makes the world better</div>
-      <div class="btn btn-blue get-start-btn"><a href="api/signup.php">Get Started</a></div>
+      <div class="btn btn-blue get-start-btn"><a href="signup.php">Get Started</a></div>
     </div> <!-- get-start-wrap -->
     <?php include "template/footer.php" ?>
   </body>
