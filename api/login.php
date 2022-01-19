@@ -12,7 +12,7 @@
         <?php include "template/navbar.php" ?>
         <div class="content-wrapper">
             <div class="ask-signup-wrapper">
-            <a class="font font-text ask-signup" href="signup.php">Don't have an account yet?</a>
+            <a class="font font-text ask-signup" href="api/signup.php">Don't have an account yet?</a>
             </div>
             <div class="font font-title title">Login</div>
             <form class="form" onsubmit="return false;">
