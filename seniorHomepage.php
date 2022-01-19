@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,9 @@
         <?php include "template/sideNav.php" ?>
         <div class="content-wrapper">
             <div class="greet-wrapper">
-                <div class="greet-hi font-title">Hello, world!</div>
+                <div class="greet-hi font-title">Hello, <?php 
+                    $username = implode(" ", array_slice(str_word_count($_SESSION['email'], 1), 0, -2));
+                    echo "$username";?>!</div>
                 <div class="greet-hope font-medium">hope you are having a good day!</div>
                 <div id="greetDate" class="greet-date font-title">Hayday, 1 Cucumber</div>
             </div>

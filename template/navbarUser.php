@@ -7,6 +7,8 @@
     </a>
     <div class="btn-access user-avatar">
         <img id="userPic" class="user-pic" src="src/profile.svg">
-        <div id="userName" class="font font-medium">Username</div>
+        <div id="userName" class="font font-medium"><?php 
+                    $username = implode(" ", array_slice(str_word_count($_SESSION['email'], 1), 0, -2));
+                    echo "$username";?></div>
     </div>
 </div>
