@@ -7,8 +7,6 @@ header("Access-Control-Allow-Credentials: true");
 include_once "./dbConnection.php";
 include_once "./errorHandler.php";
 
-session_start();
-
 if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'signup')
     signup($conn);
 
@@ -114,8 +112,16 @@ function login($conn){
         $result = $conn->query($sql);
         $row = mysqli_fetch_assoc($result);
         $role = $row['role'];
+        $rememberMe = $_POST['remember-me'];
+        session_start();
         $_SESSION['email'] = $email;
         http_response_code(200);
+        if ($rememberMe == "true"){
+            setcookie("email", $email, time() + (86400 * 30), "/");
+        }
+        else {
+            setcookie("email", $email, time() - 3600, "/");
+        }
         switch ($role) {
             case 'senior':
                 echo "senior";
@@ -131,19 +137,6 @@ function login($conn){
         errorHandler(400, "Incorrect password");
     }
     
-    // Set the session variables
-    $_SESSION['userID'] = $row['userID'];
-    $_SESSION['role'] = $row['role'];
-    $_SESSION['firstName'] = $row['firstName'];
-    $_SESSION['lastName'] = $row['lastName'];
-    $_SESSION['street'] = $row['street'];
-    $_SESSION['city'] = $row['city'];
-    $_SESSION['state'] = $row['state'];
-    $_SESSION['postcode'] = $row['postcode'];
-    $_SESSION['phoneNumber'] = $row['phoneNumber'];
-    $_SESSION['emailAddress'] = $row['emailAddress'];
-    $_SESSION['DOB'] = $row['DOB'];
-    
     // Set the session cookie
     setcookie("userID", $row['userID'], time() + (86400 * 30), "/");
     setcookie("role", $row['role'], time() + (86400 * 30), "/");
@@ -151,6 +144,19 @@ function login($conn){
 }
 
 function logout($conn){
+    // if the user is logged in, log them out
+    if (isset($_SESSION['email'])){
+        session_unset();
+        session_destroy();
+        setcookie("userID", "", time() - 3600, "/");
+        setcookie("role", "", time() - 3600, "/");
+        setcookie("firstName", "", time() - 3600, "/");
+        http_response_code(200);
+        echo "Successfully logged out";
+    }
+    else {
+        errorHandler(400, "You are not logged in");
+    }
     // Unset all of the session variables
     $_SESSION = array();
     
