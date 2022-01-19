@@ -44,7 +44,7 @@ if (signup != null) {
         .then(data => {
             alert(data)
             if (httpStatus === 200) 
-                location.href = 'login.php'
+                location.href = 'api/login.php'
             })
             .catch(error => { alert(error) })})
 }

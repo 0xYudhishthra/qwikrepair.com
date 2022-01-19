@@ -13,5 +13,5 @@
     <div class="font-text">font-text (default, no declare required)</div>
     <div class="font-small">font-small</div>
     <?php include "template/footer.php" ?>
-</body>
+</body> 
 </html>

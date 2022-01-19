@@ -1,6 +1,12 @@
 <?php
 // This file is used to handle CRUD requests on the Database.
 
+/*
+Functions to include
+- deleteProfile
+- updateProfile
+-  */
+
 header("Access-Control-Allow-Origin: http://localhost");
 header("Access-Control-Allow-Credentials: true");
 
@@ -115,8 +121,16 @@ function login($conn){
         $row = mysqli_fetch_assoc($result);
         $role = $row['role'];
         $_SESSION['email'] = $email;
-        $_SESSION['role'] = $role;
-        errorHandler(200, "Hola ". $_SESSION['email']);
+        switch ($role){
+            case "senior":
+                echo json_encode("senior/index.php");
+                break;
+            case "technician":
+                echo json_encode("technicianHomepage.php");
+                break;
+            default:
+                errorHandler(500, "Internal server error");
+        }
     } else {
         errorHandler(400, "Incorrect password");
     }

@@ -1,19 +1,19 @@
 <script type="text/javascript" src="js/sideNav.js" defer></script>
 
 <div class="sidenav">
-    <a id="seniorHomepage" class="button" href="seniorHomepage.php">
+    <a id="seniorHomepage" class="button" href="senior/index.php">
         <img class="button-icon" src="src/home.svg">
         <div class="button-text font font-medium">Home</div>
     </a>
-    <a id="seniorAppointments"class="button" href="seniorAppointments.php">
+    <a id="seniorAppointments"class="button" href="senior/appointments.php">
         <img class="button-icon" src="src/appointment.svg">
         <div class="button-text font font-medium">Appointments</div>
     </a>
-    <a id="seniorHistory" class="button" href="seniorHistory.php">
+    <a id="seniorHistory" class="button" href="senior/history.php">
         <img class="button-icon" src="src/history.svg">
         <div class="button-text font font-medium">History</div>
     </a>
-    <a id="seniorProfile"  class="button" href="seniorProfile.php">
+    <a id="seniorProfile"  class="button" href="senior/profile.php">
         <img class="button-icon" src="src/profile.svg">
         <div class="button-text font font-medium">Profile</div>
     </a>

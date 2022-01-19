@@ -15,6 +15,7 @@ if ((passwordHide != null) && (passwordInput != null)) {
 
 
 var login = document.querySelector('input[type="submit"]');
+var userRole = new XMLHttpRequest();
 
 if (login != null) {
     login.addEventListener('click', () => {
@@ -31,6 +32,6 @@ if (login != null) {
         .then(data => {
             alert(data)
             if (httpStatus === 200) 
-                location.href = 'index.php'
-            })
+                console.log("Login Successful") 
+        })
             .catch(error => { alert(error) })})}
