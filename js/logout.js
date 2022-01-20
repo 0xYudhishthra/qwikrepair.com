@@ -8,7 +8,6 @@ if (logout != null) {
         })
         .then (res => res.text())
         .then(data => {
-                alert(data)            
                 location.href = 'index.php'
         })
         .catch(error => { alert(error) })})
