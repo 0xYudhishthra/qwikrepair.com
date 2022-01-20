@@ -32,9 +32,9 @@ if (login != null) {
         .then(data => {
             if (httpStatus === 200 && data.match(/senior/))
                 location.href = 'seniorHomepage.php'
-            else if (httpStatus === 200 && data.match(/technician/))
+            if (httpStatus === 200 && data.match(/technician/))
                 location.href = 'technicianHomepage.php'
-            else
-                alert("Internal server error")
+            if (httpStatus == 400)
+                alert(data)
             })
             .catch(error => { alert(error) })})}
