@@ -13,7 +13,7 @@
     <div class="welcome-wrap">
       <div class="welcome-ctn-wrap">
         <div class="font font-title welcome-ctn-title"><span class="font font-title highlight">Seamless&nbsp;</span>home repair appointment service.</div>
-        <div class="font font-text welcome-ctn-desc">Connecting peoples in-need to publics that volunteered to help.</div>
+        <div class="font font-text welcome-ctn-desc">Connecting seniors in-need to our pool of dedicated technicians.</div>
         <div class="btn btn-blue welcome-ctn-btn"><a class="font-large" href="signup.php">Get Started</a></div>    
       </div>  <!-- welcome-ctn-wrap -->
     </div>  <!-- welcome-wrap --> 
