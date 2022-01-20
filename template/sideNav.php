@@ -14,11 +14,12 @@
         <img class="button-icon" src="src/history.svg">
         <div class="button-text font font-medium">History</div>
     </a>
-    <a id="seniorProfile"  class="button" href="seniorProfile.php">
+    <a id="seniorProfile" class="button" href="seniorProfile.php" type="submit">
         <img class="button-icon" src="src/profile.svg">
         <div class="button-text font font-medium">Profile</div>
+        <form><div><input type="hidden" name="request-type" value="getProfileDetails"></div></form>
     </a>
-    <a id="logoutBtn" class="logout-btn btn btn-blue" type="submit">
+    <a id="logoutBtn" class="logout-btn btn btn-blue">
         <img class="btn-icon" src="src/logout.svg">
         <div class="button-text font font-medium">Logout</div>
     </a>
