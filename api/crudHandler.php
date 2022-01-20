@@ -16,6 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['request-type']))
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
     login($conn);
 
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getProfileDetails')
+    getProfileDetails($conn);
+
+
 
 
 function signup($conn){
@@ -112,7 +116,6 @@ function login($conn){
         $result = $conn->query($sql);
         $row = mysqli_fetch_assoc($result);
         $role = $row['role'];
-        $pwd = $_POST['pwd'];
         session_start();
         $_SESSION['email'] = $email;
         http_response_code(200);
@@ -141,4 +144,46 @@ function logout(){
         errorHandler(400, "You are not logged in");
     }
 }
-?> 
+
+function getProfileDetails($conn){
+    //Get the email address from the session
+    session_start();
+    $email = $_SESSION['email'];
+    
+    // Get the user's details from the database and return them
+    $sql = "SELECT * FROM user WHERE emailAddress = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0){
+        $row = mysqli_fetch_assoc($result);
+        $role = $row['role'];
+        $firstName = $row['firstName'];
+        $lastName = $row['lastName'];
+        $phoneNumber = $row['phoneNumber'];
+        $street = $row['street'];
+        $city = $row['city'];
+        $state = $row['state'];
+        $postcode = $row['postcode'];
+        $email = $row['emailAddress'];
+        $dob = $row['DOB'];
+        $profile = array(
+            'role' => $role,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'phoneNumber' => $phoneNumber,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'email' => $email,
+            'street'=> $street,
+            'dob' => $dob
+        );
+        http_response_code(200);
+        echo json_encode($profile);
+    }
+    else {
+        errorHandler(500, "Internal server error");
+    }
+
+}
+
+?>
