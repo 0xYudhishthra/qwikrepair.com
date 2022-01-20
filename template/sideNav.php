@@ -1,4 +1,5 @@
 <script type="text/javascript" src="js/sideNav.js" defer></script>
+<script type="text/javascript" src="js/logout.js" defer></script>
 
 <div class="sidenav">
     <a id="seniorHomepage" class="button" href="seniorHomepage.php">
@@ -17,7 +18,7 @@
         <img class="button-icon" src="src/profile.svg">
         <div class="button-text font font-medium">Profile</div>
     </a>
-    <a id="logoutBtn" class="logout-btn btn btn-blue">
+    <a id="logoutBtn" class="logout-btn btn btn-blue" type="submit">
         <img class="btn-icon" src="src/logout.svg">
         <div class="button-text font font-medium">Logout</div>
     </a>
