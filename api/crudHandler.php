@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'signup')
     signup($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['request-type']))
-    logout($conn);
+    logout();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
     login($conn);
@@ -91,7 +91,7 @@ function login($conn){
     $sql = "SELECT password FROM user WHERE emailAddress = ?;";
     $stmt = $conn -> stmt_init();
     if (!$stmt -> prepare($sql)) {
-        errorHandler(500, "Internal server error");
+        errorHandler(500, "Internal server error when preparing statement");
     } else {
         $stmt -> bind_param('s', $email);
         $stmt -> execute();
@@ -112,16 +112,10 @@ function login($conn){
         $result = $conn->query($sql);
         $row = mysqli_fetch_assoc($result);
         $role = $row['role'];
-        $rememberMe = $_POST['remember-me'];
+        $pwd = $_POST['pwd'];
         session_start();
         $_SESSION['email'] = $email;
         http_response_code(200);
-        if ($rememberMe == "true"){
-            setcookie("email", $email, time() + (86400 * 30), "/");
-        }
-        else {
-            setcookie("email", $email, time() - 3600, "/");
-        }
         switch ($role) {
             case 'senior':
                 echo "senior";
@@ -129,43 +123,22 @@ function login($conn){
             case 'technician':
                 echo "technician";
                 break;
-            default:
-                errorHandler(500, "Internal server error");
-                break;
         }
     } else {
         errorHandler(400, "Incorrect password");
     }
-    
-    // Set the session cookie
-    setcookie("userID", $row['userID'], time() + (86400 * 30), "/");
-    setcookie("role", $row['role'], time() + (86400 * 30), "/");
-    setcookie("firstName", $row['firstName'], time() + (86400 * 30), "/");
 }
 
-function logout($conn){
+function logout(){
+    session_start();
     // if the user is logged in, log them out
     if (isset($_SESSION['email'])){
-        session_unset();
+        unset($_SESSION['email']);
         session_destroy();
-        setcookie("userID", "", time() - 3600, "/");
-        setcookie("role", "", time() - 3600, "/");
-        setcookie("firstName", "", time() - 3600, "/");
-        http_response_code(200);
-        echo "Successfully logged out";
+        errorHandler(200, "Successfully logged out");
     }
     else {
         errorHandler(400, "You are not logged in");
     }
-    // Unset all of the session variables
-    $_SESSION = array();
-    
-    // Destroy the session
-    session_destroy();
-    
-    // Delete the session cookie
-    setcookie("userID", "", time() - 3600, "/");
-    setcookie("role", "", time() - 3600, "/");
-    setcookie("firstName", "", time() - 3600, "/");
 }
 ?> 
