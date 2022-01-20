@@ -9,6 +9,6 @@ function setUserIcon(filename) {
 
 function setUserName(name) {
     if (userName != null) {
-        userName.innerHTML=name;
+        userName.innerHTML="name";
     }
 }
