@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2022 at 12:47 PM
+-- Generation Time: Jan 20, 2022 at 04:07 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -98,14 +98,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `firstName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `lastName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`userID`, `role`, `street`, `city`, `state`, `postcode`, `profilePicture`, `phoneNumber`, `emailAddress`, `password`, `DOB`, `firstName`, `lastName`) VALUES
-(9, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, 'gg@gmail.com', '$2y$10$wrXYBQPoYxRgEN92jLoN6e/DK1dRsmTjVkQivGVMaf07HwF.Th/k.', NULL, NULL, NULL);
+(9, 'senior', 'Setiawangsa', 'KL', 'KL', 54200, NULL, 132083324, 'gg@gmail.com', '$2y$10$wrXYBQPoYxRgEN92jLoN6e/DK1dRsmTjVkQivGVMaf07HwF.Th/k.', '2022-01-13', 'Yudhish', 'M'),
+(10, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, '3@gmail.com', '$2y$10$UOOa52O.jdY2YbKG5StNfeV4taJ6qMxr20a0qAjdVQIxbegdhPFoe', NULL, NULL, NULL),
+(11, 'technician', NULL, NULL, NULL, NULL, NULL, NULL, 'technician@gmail.com', '$2y$10$ozAJ6Ca.aGE8m5BzAcFZSO6ZsSNPEN5oFjFgAGgewR6yAsfcUY0Au', NULL, NULL, NULL),
+(12, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, 'senior@gmail.com', '$2y$10$Vzazi8x63WNki.2lEKmswuzK2CCFIRRypG4sGPAFMyY//wRoUwomK', NULL, NULL, NULL),
+(13, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, 'senior2@gmail.com', '$2y$10$f6iyhSOpZPmdZdTShzJgLuj0Amv0ttRuMrwhqPoAgY9zbFIvGyB4m', NULL, NULL, NULL);
 
 --
 -- Constraints for dumped tables
