@@ -4,10 +4,11 @@
     <?php include "template/header.php" ?>
     <link type="text/css" rel="stylesheet" href="css/navbar.css">
     <link type="text/css" rel="stylesheet" href="css/footer.css">
+    <link type="text/css" rel="stylesheet" href="css/faq.css">
 </head>
 <body>
     <?php include "template/navbar.php" ?>
-    <div class="font-title">font-title</div>
+    <div class="font-title">SERVICES</div>
     <div class="font-large">font-large</div>
     <div class="font-medium">font-medium</div>
     <div class="font-text">font-text (default, no declare required)</div>

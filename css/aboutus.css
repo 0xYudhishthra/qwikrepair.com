@@ -1,0 +1,43 @@
+.title-1{
+position: absolute;
+width: 969px;
+height: 104px;
+left: 100px;
+top: 166px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 98.2%;
+
+
+color: #4770FF;
+}
+
+.title-2{
+    position: absolute;
+    width: 969px;
+    height: 104px;
+    left: 100px;
+    top: 166px;
+
+    font-family: Poppins;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 65px;
+    line-height: 98.2%;
+    /* or 64px */
+
+
+    color: #022A5D;
+}
+
+/* Body with 2 grid rows */
+.row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
