@@ -27,105 +27,14 @@
                     <input type="submit" value="Submit" class="btn btn-blue search-btn">
                 </form>
             </div>
-            <div class="card-wrapper">
-                <div class="card">
+            <div id="cardWrapper" class="card-wrapper">
+                <!-- <div class="card">
                     <img class="card-pic" src="src/eye-crossed.svg">
                     <div class="card-service-name font font-medium">Service</div>
                     <div class="card-tech-name font">Name</div>
                     <div class="card-desc font font-small">Descriptions</div>
                     <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

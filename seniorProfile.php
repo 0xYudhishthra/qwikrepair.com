@@ -18,14 +18,10 @@
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
-    <?php include "template/sideNav.php" ?>
-    <div class="container">
-        <div class="profileBox">
-            <img src="src/profile.svg" alt="profilePicture" class="profilePicture">
-            <h1 id="fullName">Full Name</h1>
-            <h1 id="role">Role</a>
-            <h1 id="role">Role</a>
-            <h1 id="emailAddress">Email Address</h1>
+    <div>
+        <?php include "template/sideNav.php" ?>
+        <div class="content-wrapper">
+            
         </div>
     </div>
 </body>
