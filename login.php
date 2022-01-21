@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+if (isset($_SESSION['role']) && isset($_SESSION['email'])) {
+    if ($_SESSION['role'] == 'senior')
+        header("Location: seniorHomepage.php");
+    if ($_SESSION['role'] == 'technician')
+        header("Location: technicianHomepage.php");
+} 
+?>
 <!DOCTYPE html>
 <html lang="en-us">
     <head>

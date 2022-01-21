@@ -1,13 +1,4 @@
-<?php
-//Identify if the user is logged in
-session_start();
-if (isset($_SESSION['role']) && isset($_SESSION['email'])) {
-    if ($_SESSION['role'] == 'senior')
-        header("Location: seniorHomepage.php");
-    if ($_SESSION['role'] == 'technician')
-        header("Location: technicianHomepage.php");
-}
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
