@@ -120,6 +120,7 @@ function login($conn){
         $role = $row['role'];
         session_start();
         $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role;
         http_response_code(200);
         switch ($role) {
             case 'senior':
