@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getProfileDetails')
     getProfileDetails($conn);
 
+// function updateProfileDetails($conn, $updateData) {
+    // 
 
 
 

@@ -11,42 +11,20 @@
     <link type="text/css" rel="stylesheet" href="css/navbar.css">
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
-    <!-- <link type="text/css" rel="stylesheet" href="css/profile.css"> -->
+    <link type="text/css" rel="stylesheet" href="css/seniorProfile.css">
     <script src="js/seniorProfile.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
     <?php include "template/sideNav.php" ?>
-    <div class="wrapper">font-title
-        <div class="left">
-            <div class="font-medium" id="fullName">Name</div>
-            <div class="font-medium" id="emailAddress">Email Address</div>
-            <div class="font-medium" id="role">Role</div>
+    <div class="container">
+        <div class="profileBox">
+            <img src="src/profile.svg" alt="profilePicture" class="profilePicture">
+            <h1 id="fullName">Full Name</h1>
+            <h1 id="role">Role</a>
+            <h1 id="role">Role</a>
+            <h1 id="emailAddress">Email Address</h1>
         </div>
-        <div class="right">
-            <div class="personalInfo">
-                <div class="font-title">Personal Information</div>
-                    <div class="personalInfo_data">
-                        <div class="data">
-                            <div class="font-medium" id="dob">Date of Birth</div>
-                        </div>
-                        <div class="data">
-                            <div class="font-medium" id="phoneNumber">Phone Number</div>
-                        </div>
-                        <div class="data">
-                            <div class="font-medium" id="street">Street</div>
-                        </div>
-                        <div class="data">
-                            <div class="font-medium" id="city">City</div>
-                        </div>
-                        <div class="data">
-                            <div class="font-medium" id="state">State</div>
-                        </div>
-                        <div class="data">
-                            <div class="font-medium" id="postcode">Postcode</div>
-                        </div>
-            </div>
-        </div> 
     </div>
 </body>
 </html>

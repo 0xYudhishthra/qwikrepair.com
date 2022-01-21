@@ -1,3 +1,7 @@
+<?php session_start(); 
+    if (!isset($_SESSION['email']))
+        header("Location: index.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +10,30 @@
     <link type="text/css" rel="stylesheet" href="css/navbar.css">
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
+    <link type="text/css" rel="stylesheet" href="css/seniorHistory.css">
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
-    <?php include "template/sideNav.php" ?>
-    <div class="font-title">font-title</div>
-    <div class="font-large">font-large</div>
-    <div class="font-medium">font-medium</div>
-    <div class="font-text">font-text (default, no declare required)</div>
-    <div class="font-small">font-small</div>
+    <div>
+        <?php include "template/sideNav.php" ?>
+        <h1>Appointment History</h1><br>
+        <table class="historyTable">
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>``
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

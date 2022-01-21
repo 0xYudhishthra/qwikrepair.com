@@ -16,7 +16,7 @@ body {
     overflow-y: overlay;
 }
 
-body * {
+ body * {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     text-decoration: none;
