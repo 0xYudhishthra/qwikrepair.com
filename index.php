@@ -45,7 +45,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['email'])) {
       </div> <!-- service-3 -->
     </div> <!-- service-wrap -->
     <div class="get-start-wrap">
-      <div class="font font-medium get-start-text">Helping each other makes the world better</div>
+      <div class="font font-medium get-start-text">Helping each other make the world better</div>
       <div class="btn btn-blue get-start-btn"><a href="signup.php">Get Started</a></div>
     </div> <!-- get-start-wrap -->
     <?php include "template/footer.php" ?>
