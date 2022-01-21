@@ -14,3 +14,22 @@ function searchOutFocus() {
         searchBox.style.boxShadow = "0 0 2px #94D1EA"   
     }
 }
+
+function addServiceCard(cardPic, serviceName, techName, serviceDescription, redirectUrl) {
+    cardWrapper = document.getElementById("cardWrapper");
+    if (cardWrapper != null) {
+        cardWrapper.innerHTML += `
+            <div class="card">
+                <img class="card-pic" src="${cardPic}">
+                <div class="card-service-name font font-medium">${serviceName}</div>
+                <div class="card-tech-name font">${techName}</div>
+                <div class="card-desc font font-small">${serviceDescription}</div>
+                <a class="btn btn-blue card-btn" href=${redirectUrl}>Book Now</a>
+            </div>
+            `
+    }
+}
+
+for (i=0; i < 100; i++) {
+    addServiceCard("src/home.svg", "Plumbing", "John", "I will plumb ur backdoor.")
+}
