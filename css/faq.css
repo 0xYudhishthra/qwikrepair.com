@@ -20,7 +20,8 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3c4053;
+    background-color: white;
+    flex-direction: column;
 }
 
 .container {
@@ -28,8 +29,14 @@ section{
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 1.5rem;
+    align-items: center;
+    justify-self: center;
 }
- 
+
+.faq{
+    display: flex;
+    flex-direction: column;
+}
 .faqQuestion{
     background-color:#94D1EA;
     border-radius: .4rem;
@@ -37,6 +44,7 @@ section{
     padding: 1rem;
     box-shadow: .5rem 2px .5rem rgba(0,0,0,.1);
     background-color: #283042;
+    flex-direction: column;
 }
 
 .faqLink{
