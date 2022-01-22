@@ -243,10 +243,59 @@ function getAppointmentHistory($conn){
     }
 }
 
-function getAppointmentStatus(){}
+function getAppointmentStatus($conn){
+    //Get the email address from the session
+    session_start();
+    $email = $_SESSION['email'];
+    
+    //Determine if appointment records exist for this user and if yes, return the status of the appointment
+    $sql = "SELECT * FROM appointment WHERE userID = (SELECT userID FROM user WHERE emailAddress = '$email')";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0){
+        $appointments = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $appointment = array(
+                'appointmentID' => $row['appointmentID'],
+                'appointmentStatus' => $row['appointmentStatus']
+            );
+            array_push($appointments, $appointment);
+        }
+        http_response_code(200);
+        echo json_encode($appointments);
+    } else {
+        errorHandler(400, "No appointment records found");
+    } 
+}
 
 function bookAppointment(){}
 
-function listService(){}
+function listService($conn){
+    //Query the service table to get list of services and the tecnician's name
+    $sql = "SELECT service.serviceName, service.serviceDescription, user.firstName, user.lastName
+            FROM service
+            LEFT JOIN user ON service.userID = user.userID";
+    $result = $conn->query($sql);
+
+    //If there are services, return them
+    if ($result->num_rows > 0){
+        $services = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $service = array(
+                'serviceName' => $row['serviceName'],
+                'serviceDescription' => $row['serviceDescription'],
+                'techFullName' => $row['firstName'] . " " . $row['lastName']
+            );
+            array_push($services, $service);
+        }
+        http_response_code(200);
+        echo json_encode($services);
+    }
+    else {
+        echo 0;
+    }
+
+
+    
+}
 
 ?>

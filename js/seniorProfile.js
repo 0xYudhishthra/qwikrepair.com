@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     formData.append("request-type", "getProfileDetails");
     fetch('api/crudHandler.php', {
         method: 'POST',
-        body: requestType
+        body: formData
     })
     .then(res => {
         return res.json();

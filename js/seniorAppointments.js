@@ -1,6 +1,29 @@
 searchText = document.getElementById("searchText");
 searchBox = document.getElementById("searchBox");
 
+document.addEventListener("DOMContentLoaded", function() {
+    let formData = new FormData();
+    formData.append("request-type", "listService");
+    fetch('api/crudHandler.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        if (data == 0) {
+            emptyServiceCard()
+        } else {
+            for (i=0; i < data.length; i++) {
+                addServiceCard("src/home.svg", data[i].serviceName, data[i].techFullName, data[i].serviceDescription);
+            }
+        } 
+    })
+    .catch(err => {
+        console.log(err);
+    });});
+
 function searchFocus() {
     if ((searchBox != null) && (searchText != null)) {
         searchText.style.borderColor = "#94D1EA"
@@ -15,7 +38,7 @@ function searchOutFocus() {
     }
 }
 
-function addServiceCard(cardPic, serviceName, techName, serviceDescription, redirectUrl) {
+function addServiceCard(cardPic, serviceName, techName, serviceDescription, redirectUrl="") {
     cardWrapper = document.getElementById("cardWrapper");
     if (cardWrapper != null) {
         cardWrapper.innerHTML += `
@@ -30,6 +53,13 @@ function addServiceCard(cardPic, serviceName, techName, serviceDescription, redi
     }
 }
 
-for (i=0; i < 10; i++) {
-    addServiceCard("src/home.svg", "Plumbing", "John", "I will plumb ur backdoor.")
+function emptyServiceCard(){
+    cardWrapper = document.getElementById("cardWrapper");
+    if (cardWrapper != null) {
+        cardWrapper.innerHTML += `
+            <div class="card">
+                <div class="card-service-name font font-medium">No Services Available</div>
+            </div>
+            `
+    }
 }
