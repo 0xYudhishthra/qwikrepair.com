@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 20, 2022 at 04:07 PM
+-- Generation Time: Jan 22, 2022 at 06:55 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -42,7 +42,15 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   PRIMARY KEY (`appointmentID`),
   KEY `serviceID` (`serviceID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appointmentID`, `appointmentDate`, `appointmentTime`, `appointmentStatus`, `street`, `city`, `state`, `postcode`, `serviceID`, `userID`) VALUES
+(1, '2020-01-23', '12:01:00', 0, 'Setiawangsa', 'KL', 'WPKL', 54200, 1, 9),
+(2, '2020-01-21', '07:01:00', 0, 'Setiawangsa', 'KL', 'WPKL', 54200, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -58,7 +66,14 @@ CREATE TABLE IF NOT EXISTS `service` (
   `userID` int NOT NULL,
   PRIMARY KEY (`serviceID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`serviceID`, `serviceName`, `serviceDescription`, `userID`) VALUES
+(1, 'Electronic Repair', 'I can repair electronics', 11);
 
 -- --------------------------------------------------------
 
@@ -74,7 +89,14 @@ CREATE TABLE IF NOT EXISTS `service_review` (
   `appointmentID` int NOT NULL,
   PRIMARY KEY (`reviewID`),
   KEY `appointmentID` (`appointmentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `service_review`
+--
+
+INSERT INTO `service_review` (`reviewID`, `reviewFeedback`, `reviewRating`, `appointmentID`) VALUES
+(1, 'veli good', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -106,10 +128,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`userID`, `role`, `street`, `city`, `state`, `postcode`, `profilePicture`, `phoneNumber`, `emailAddress`, `password`, `DOB`, `firstName`, `lastName`) VALUES
 (9, 'senior', 'Setiawangsa', 'KL', 'KL', 54200, NULL, 132083324, 'gg@gmail.com', '$2y$10$wrXYBQPoYxRgEN92jLoN6e/DK1dRsmTjVkQivGVMaf07HwF.Th/k.', '2022-01-13', 'Yudhish', 'M'),
-(10, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, '3@gmail.com', '$2y$10$UOOa52O.jdY2YbKG5StNfeV4taJ6qMxr20a0qAjdVQIxbegdhPFoe', NULL, NULL, NULL),
-(11, 'technician', NULL, NULL, NULL, NULL, NULL, NULL, 'technician@gmail.com', '$2y$10$ozAJ6Ca.aGE8m5BzAcFZSO6ZsSNPEN5oFjFgAGgewR6yAsfcUY0Au', NULL, NULL, NULL),
-(12, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, 'senior@gmail.com', '$2y$10$Vzazi8x63WNki.2lEKmswuzK2CCFIRRypG4sGPAFMyY//wRoUwomK', NULL, NULL, NULL),
-(13, 'senior', NULL, NULL, NULL, NULL, NULL, NULL, 'senior2@gmail.com', '$2y$10$f6iyhSOpZPmdZdTShzJgLuj0Amv0ttRuMrwhqPoAgY9zbFIvGyB4m', NULL, NULL, NULL);
+(11, 'technician', NULL, NULL, NULL, NULL, NULL, NULL, 'technician@gmail.com', '$2y$10$ozAJ6Ca.aGE8m5BzAcFZSO6ZsSNPEN5oFjFgAGgewR6yAsfcUY0Au', NULL, 'Ali', 'Khan');
 
 --
 -- Constraints for dumped tables
