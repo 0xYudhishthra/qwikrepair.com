@@ -35,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'bookAppoi
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentStatus')
     getAppointmentStatus($conn);
 
+
+    //This function is used to sign up a new user.
 function signup($conn){
     // Get the data from the request
     $email = $_POST['email'];
@@ -91,6 +93,7 @@ function signup($conn){
     }
 }
 
+//This function is used to log in a user.
 function login($conn){
     // Get the data from the request
     $email = $_POST['email'];
@@ -146,6 +149,7 @@ function login($conn){
     }
 }
 
+//This function is used to log out a user.
 function logout(){
     session_start();
     // if the user is logged in, log them out
@@ -159,6 +163,7 @@ function logout(){
     }
 }
 
+//This function is used to get the details of the user.
 function getProfileDetails($conn){
     //Get the email address from the session
     session_start();
@@ -200,6 +205,7 @@ function getProfileDetails($conn){
 
 }
 
+//This function is used to get the list of completed appointments.
 function getAppointmentHistory($conn){
     //Get the email address from the session
     session_start();
@@ -221,7 +227,7 @@ function getAppointmentHistory($conn){
             LEFT JOIN service ON appointment.serviceID = service.serviceID
             LEFT JOIN user ON service.userID = user.userID
             LEFT JOIN service_review ON service_review.appointmentID = appointment.appointmentID
-            WHERE appointment.userID = '$userID'";
+            WHERE appointment.userID = '$userID' AND appointment.appointmentStatus = 4";
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
         $appointments = array();
@@ -243,6 +249,7 @@ function getAppointmentHistory($conn){
     }
 }
 
+//This function is used to determine if the user has any current appointments.
 function getAppointmentStatus($conn){
     //Get the email address from the session
     session_start();
@@ -263,12 +270,14 @@ function getAppointmentStatus($conn){
         http_response_code(200);
         echo json_encode($appointments);
     } else {
-        errorHandler(400, "No appointment records found");
+        echo 0;
     } 
 }
 
+//This function is used to create an appointment for the user.
 function bookAppointment(){}
 
+//This function gets the list of services that are available for the user to book an appointment.
 function listService($conn){
     //Query the service table to get list of services and the tecnician's name
     $sql = "SELECT service.serviceName, service.serviceDescription, user.firstName, user.lastName

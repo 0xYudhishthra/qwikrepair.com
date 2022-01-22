@@ -3,6 +3,29 @@ searchBox = document.getElementById("searchBox");
 
 document.addEventListener("DOMContentLoaded", function() {
     let formData = new FormData();
+    formData.append("request-type", "getAppointmentStatus");
+    fetch('api/crudHandler.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        if (data == 0) {
+            generateServiceCards();
+        } else {
+            displayAppointmentStatus(data); 
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    });
+});
+
+
+function generateServiceCards() {
+    let formData = new FormData();
     formData.append("request-type", "listService");
     fetch('api/crudHandler.php', {
         method: 'POST',
@@ -22,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(err => {
         console.log(err);
-    });});
+    });
+}
 
 function searchFocus() {
     if ((searchBox != null) && (searchText != null)) {
@@ -63,3 +87,4 @@ function emptyServiceCard(){
             `
     }
 }
+
