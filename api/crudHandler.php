@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'listServi
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'bookAppointment')
     bookAppointment($conn);
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentStatus')
-    getAppointmentStatus($conn);
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentDetails')
+    getAppointmentDetails($conn);
 
 
     //This function is used to sign up a new user.
@@ -249,29 +249,50 @@ function getAppointmentHistory($conn){
     }
 }
 
-//This function is used to determine if the user has any current appointments.
-function getAppointmentStatus($conn){
+//This function is used to determine if the user has any current appointments and provides relevant appointment info if one or more records exist.
+function getAppointmentDetails($conn){
     //Get the email address from the session
     session_start();
     $email = $_SESSION['email'];
     
     //Determine if appointment records exist for this user and if yes, return the status of the appointment
-    $sql = "SELECT * FROM appointment WHERE userID = (SELECT userID FROM user WHERE emailAddress = '$email')";
+    $sql = "SELECT s.serviceName, u.firstName, u.lastName, a.appointmentDate, a.appointmentTime, a.street, a.city, a.state, a.postcode, a.appointmentStatus 
+            FROM appointment a 
+            LEFT JOIN service s ON a.serviceID = s.serviceID
+            LEFT JOIN user u ON s.userID = u.userID
+            WHERE a.userID = (SELECT userID FROM user WHERE emailAddress = '$email') AND a.appointmentStatus != 4";
+          
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
-        $appointments = array();
-        while($row = mysqli_fetch_assoc($result)){
-            $appointment = array(
-                'appointmentID' => $row['appointmentID'],
-                'appointmentStatus' => $row['appointmentStatus']
-            );
-            array_push($appointments, $appointment);
-        }
+        $row = mysqli_fetch_assoc($result);
+        $serviceName = $row['serviceName'];
+        $firstName = $row['firstName'];
+        $lastName = $row['lastName'];
+        $appointmentDate = $row['appointmentDate'];
+        $appointmentTime = $row['appointmentTime'];
+        $street = $row['street'];
+        $city = $row['city'];
+        $state = $row['state'];
+        $postcode = $row['postcode'];
+        $appointmentStatus = $row['appointmentStatus'];
+        $appointment = array(
+            'serviceName' => $serviceName,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'appointmentDate' => $appointmentDate,
+            'appointmentTime' => $appointmentTime,
+            'street' => $street,
+            'city' => $city,
+            'state' => $state,
+            'postcode' => $postcode,
+            'appointmentStatus' => $appointmentStatus
+        );
         http_response_code(200);
-        echo json_encode($appointments);
-    } else {
+        echo json_encode($appointment);
+    }
+    else {
         echo 0;
-    } 
+    }
 }
 
 //This function is used to create an appointment for the user.
@@ -306,5 +327,6 @@ function listService($conn){
 
     
 }
+
 
 ?>

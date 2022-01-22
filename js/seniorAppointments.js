@@ -3,7 +3,7 @@ searchBox = document.getElementById("searchBox");
 
 document.addEventListener("DOMContentLoaded", function() {
     let formData = new FormData();
-    formData.append("request-type", "getAppointmentStatus");
+    formData.append("request-type", "getAppointmentDetails");
     fetch('api/crudHandler.php', {
         method: 'POST',
         body: formData
