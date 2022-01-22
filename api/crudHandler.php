@@ -35,9 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'bookAppoi
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentDetails')
     getAppointmentDetails($conn);
 
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getBriefAppointmentHistory')
+    getBriefAppointmentHistory($conn);
 
     //This function is used to sign up a new user.
-function signup($conn){
+
+    function signup($conn){
     // Get the data from the request
     $email = $_POST['email'];
     $pwd = $_POST['pwd'];
@@ -246,6 +249,33 @@ function getAppointmentHistory($conn){
     }
     else {
         errorHandler(500, "Internal server error");
+    }
+}
+
+function getBriefAppointmentHistory($conn){
+    session_start();
+    $email = $_SESSION['email'];
+
+    $sql = "SELECT service.serviceName, user.firstName, user.lastName
+        FROM appointment
+        LEFT JOIN service ON appointment.serviceID = service.serviceID
+        LEFT JOIN user ON service.userID = user.userID
+        WHERE appointment.userID = (SELECT userID FROM user WHERE emailAddress = '$email') AND appointment.appointmentStatus = 4";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0){
+        $appointments = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $appointment = array(
+                'serviceName' => $row['serviceName'],
+                'fullName' => $row['firstName'] . " " . $row['lastName']
+            );
+            array_push($appointments, $appointment);
+        }
+        http_response_code(200);
+        echo json_encode($appointments);
+    }
+    else {
+        errorHandler(500, "No records found");
     }
 }
 

@@ -67,33 +67,29 @@ function displayInstantAppo(serviceArray) {
     }
 }
 
-appointmentArray = [
-    new Appointment(
-        'src/appointment.svg',
-        'Fly Away',
-        'John',
-        '',
-    ),
-    new Appointment(
-        'src/home.svg',
-        'Fly Dead',
-        'Siti',
-        '',
-    ),
-    new Appointment(
-        'src/history.svg',
-        'Fly Down',
-        'John Wick',
-        '',
-    ),
-    new Appointment(
-        'src/logo.svg',
-        'Fly Up',
-        'Johny Sin',
-        '',
-    ),
-];
+var appointmentArray = [];
 
+function getBriefAppointmentHistory() {
+    let formData = new FormData();
+    formData.append("request-type", "getBriefAppointmentHistory");
+    fetch('api/crudHandler.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        for (var i=0; i < data.length; i++) {
+            serviceName = data[i].serviceName;
+            fullName = data[i].fullName;
+            appointmentArray.push('new Appointment("src/profile.svg", serviceName, fullName, ""');
+        }
+    })
+    return appointmentArray; 
+}
+
+alert (appointmentArray);
+
+getBriefAppointmentHistory();
 displayPastAppoCard(appointmentArray);
 
 serviceArray = ['Aircon Service', 'Dust Clean', 'Plumbing'];
