@@ -13,6 +13,7 @@
     <a id="seniorHistory" class="button" href="seniorHistory.php">
         <img class="button-icon" src="src/history.svg">
         <div class="button-text font font-medium">History</div>
+        <form><div><input type="hidden" name="request-type" value="getAppointmentHistory"></div></form>
     </a>
     <a id="seniorProfile" class="button" href="seniorProfile.php" type="submit">
         <img class="button-icon" src="src/profile.svg">

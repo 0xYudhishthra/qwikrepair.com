@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == "login")
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getProfileDetails')
     getProfileDetails($conn);
 
-// function updateProfileDetails($conn, $updateData) {
-    // 
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentHistory')
+    getAppointmentHistory($conn);
 
 
 
@@ -189,4 +189,46 @@ function getProfileDetails($conn){
 
 }
 
+function getAppointmentHistory($conn){
+    //Get the email address from the session
+    session_start();
+    $email = $_SESSION['email'];
+
+    //Get userID from the user table using the email address
+    $sql = "SELECT userID FROM user WHERE emailAddress = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0){
+        $row = mysqli_fetch_assoc($result);
+        $userID = $row['userID'];
+    }
+    else {
+        errorHandler(500, "Internal server error");
+    }
+
+    $sql ="SELECT appointment.appointmentDate, appointment.appointmentTime, service.serviceName, service.userID, user.firstName, user.lastName, service_review.reviewRating
+            FROM appointment
+            LEFT JOIN service ON appointment.serviceID = service.serviceID
+            LEFT JOIN user ON service.userID = user.userID
+            LEFT JOIN service_review ON service_review.appointmentID = appointment.appointmentID
+            WHERE appointment.userID = '$userID'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0){
+        $appointments = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $appointment = array(
+                'appointmentDate' => $row['appointmentDate'],
+                'appointmentTime' => $row['appointmentTime'],
+                'serviceName' => $row['serviceName'],
+                'fullName' => $row['firstName'] . " " . $row['lastName'],
+                'reviewRating' => $row['reviewRating']
+            );
+            array_push($appointments, $appointment);
+        }
+        http_response_code(200);
+        echo json_encode($appointments);
+    }
+    else {
+        errorHandler(500, "Internal server error");
+    }
+}
 ?>

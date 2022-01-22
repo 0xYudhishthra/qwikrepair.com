@@ -14,6 +14,7 @@
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/seniorHistory.css">
+    <script src="js/seniorHistory.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
@@ -22,28 +23,13 @@
         <div class="content-wrapper">
         <div class="font font-large title">Appointment History</div>
             <div class="table-wrapper">
-                <table class="table">
-                    <tr>
+                <table class="table" id="appointmentHistoryTable">
+                    <tr class="tableHeaders">
                         <th class="date-h">Date</th>
                         <th class="time-h">Time</th>
                         <th class="service-name-h">Service Name</th>
                         <th class="tech-name-h">Technician</th>
                         <th class="review-h">Review</th>
-                    </tr>
-                    <tr>
-                        <td class="date-d">31/12/2021</td>
-                        <td class="time-d">12.00 pm</td>
-                        <td class="service-name-d">Plumbing</td>
-                        <td class="tech-name-d">Mr. Elon</td>
-                        <td class="review-d">
-                            <div class="stars">
-                                <img class="star" src="src/star-solid.svg">
-                                <img class="star" src="src/star-solid.svg">
-                                <img class="star" src="src/star-solid.svg">
-                                <img class="star" src="src/star-empty.svg">
-                                <img class="star" src="src/star-empty.svg">
-                            </div>
-                        </td>
                     </tr>
                 </table>
                 <div class="btn btn-blue load-more">Load More</div>
