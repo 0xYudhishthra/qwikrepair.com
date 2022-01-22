@@ -30,6 +30,6 @@ function addServiceCard(cardPic, serviceName, techName, serviceDescription, redi
     }
 }
 
-for (i=0; i < 100; i++) {
+for (i=0; i < 10; i++) {
     addServiceCard("src/home.svg", "Plumbing", "John", "I will plumb ur backdoor.")
 }

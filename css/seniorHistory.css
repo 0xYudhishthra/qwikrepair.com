@@ -29,15 +29,28 @@
     display: block;
     width: 100%;
     height: fit-content;
-    padding: 20px;
-}
-
-.table tr {
-    border-bottom: 0.5px solid rgb(170, 170, 170);
 }
 
 .table-wrapper .load-more {
     width: fit-content;
     margin: 0 auto;
-    margin-bottom: 4%;
+}
+
+.table tr {
+    height: 50px;
+    border-bottom: 1px solid rgb(170, 170, 170);
+    padding: 0 30px;
+}
+
+.table tr td, .table tr th {
+    border: none;
+}
+
+.table .stars {
+    display: flex;
+}
+
+.table .stars .star {
+    margin-right: 2px;
+    width: 20px;
 }
