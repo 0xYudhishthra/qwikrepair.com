@@ -10,7 +10,7 @@ function instantiateElement(data, elementID, elementType) {
         return element;
 };
 
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function() {
     const requestType = new FormData(document.querySelector('form'));
     fetch('api/crudHandler.php', {
         method: 'POST',
