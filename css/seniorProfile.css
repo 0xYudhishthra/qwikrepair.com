@@ -1,34 +1,106 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.container{
-    width: 100%;
-    height: 100vh;  
-    display: flex;
-    align-items: center;
+.content-wrapper {
+    height: calc(100vh - 50px);
+    width: 80vw;
+    background-color: #F6F8FE;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.profileBox{
-    background-color: #ff574a;
-    text-align: center;
-    padding: 40px 90px;
-    color: #fff;
-    position: relative;
-    border-radius: 20px;
-    max-width: fit-content;
+.profile-wrapper, .profile-edit {
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 3px grey;
+}
+
+.profile-table * {
+    display: block;
+}
+
+.profile-table tr {
+    display: flex;
+    padding: 20px;
+}
+
+.profile-table {
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 3px grey;
+    padding: 50px;
+}
+
+.profile-table tr th {
+    width: 30%;
+}
+
+.profile-table tr .address {
+    max-width: 70%;
     white-space: initial;
 }
 
-.profilePicture{
-    width: 150px;
-    border-radius: 50%;
-    background: #fff;
-    padding: 6px;
-    margin-top: 40px;
-    
+.profile-table .pic img {
+    width: 70px;
+}
+
+.profile-table .edit {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.profile-edit {
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    padding: 50px;
+}
+
+.content-wrapper .profile-edit * {
+    display: block;
+}
+
+.profile-edit .form {
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.profile-edit .form div {
+    display: flex;
+}
+
+.profile-edit .form input:not(.btn) {
+    outline: none;
+    border: solid 1.5px black;
+    border-radius: 6px;
+    width: 250px;
+    height: 40px;
+    margin: 0 70px 20px 0;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.profile-edit .form input:focus {
+    box-shadow: 0 0 3px #94D1EA;
+    border-color: #94D1EA;
+}
+
+.profile-edit .form .pic-input {
+    border: none !important;
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
+.profile-edit .form .btn {
+    width: fit-content;
+    height: fit-content;
+}
+
+.profile-edit .form .button {
+    margin-top: 50px;
+    justify-content: center;
 }
