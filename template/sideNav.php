@@ -2,7 +2,7 @@
 <script type="text/javascript" src="js/logout.js" defer></script>
 
 <div class="sidenav">
-    <a id="seniorHomepage" class="button" href="seniorHomepage.php" type="submit>
+    <a id="seniorHomepage" class="button" href="seniorHomepage.php" type="submit">
         <img class="button-icon" src="src/home.svg">
         <div class="button-text font font-medium">Home</div>
     </a>
