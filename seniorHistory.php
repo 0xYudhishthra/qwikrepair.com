@@ -32,7 +32,7 @@
                         <th class="review-h">Review</th>
                     </tr>
                 </table>
-                <div class="btn btn-blue load-more">Load More</div>
+                <!-- <div class="btn btn-blue load-more">Load More</div> -->
             </div>
         </div>
     </div>

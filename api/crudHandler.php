@@ -4,9 +4,13 @@
 header("Access-Control-Allow-Origin: http://localhost");
 header("Access-Control-Allow-Credentials: true");
 
+// Connect to the database.
 include_once "./dbConnection.php";
+
+//Handles errors from the database.
 include_once "./errorHandler.php";
 
+//These functions are used to identify the type of request and call the appropriate function.
 if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'signup')
     signup($conn);
 
@@ -22,7 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getProfil
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentHistory')
     getAppointmentHistory($conn);
 
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'listService')
+    listService($conn);
 
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'bookAppointment')
+    bookAppointment($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppointmentStatus')
+    getAppointmentStatus($conn);
 
 function signup($conn){
     // Get the data from the request
@@ -231,4 +242,11 @@ function getAppointmentHistory($conn){
         errorHandler(500, "Internal server error");
     }
 }
+
+function getAppointmentStatus(){}
+
+function bookAppointment(){}
+
+function listService(){}
+
 ?>

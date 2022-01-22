@@ -1,8 +1,9 @@
 window.addEventListener("DOMContentLoaded", function() {
-    const requestType = new FormData(document.querySelector('form'));
+    let formData = new FormData();
+    formData.append("request-type", "getAppointmentHistory");
     fetch('api/crudHandler.php', {
         method: 'POST',
-        body: requestType
+        body: formData
     })
     .then(res => {
         return res.json();

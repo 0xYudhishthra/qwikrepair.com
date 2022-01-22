@@ -10,8 +10,9 @@ function instantiateElement(data, elementID, elementType) {
         return element;
 };
 
-window.addEventListener("DOMContentLoaded", function() {
-    const requestType = new FormData(document.querySelector('form'));
+document.addEventListener("DOMContentLoaded", function() {
+    let formData = new FormData();
+    formData.append("request-type", "getProfileDetails");
     fetch('api/crudHandler.php', {
         method: 'POST',
         body: requestType
