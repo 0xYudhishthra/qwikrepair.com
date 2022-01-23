@@ -24,7 +24,7 @@
             <table class="profile-table" id="profile-table">
                 <tr>
                     <th class="t-pic">Profile Picture</th>
-                    <td id="profilePic" class="pic"><img src="src/profile.svg"></td> 
+                    <td class="pic"><img id="profilePicture" src="src/profile.svg"></td> 
                 </tr>
                 <tr>
                     <th class="t-name">Profile Name</th>

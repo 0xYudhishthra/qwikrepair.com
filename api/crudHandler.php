@@ -198,6 +198,7 @@ function getProfileDetails($conn){
         $postcode = $row['postcode'];
         $email = $row['emailAddress'];
         $dob = $row['DOB'];
+        $profilePicture = $row['profilePicture'];
         $profile = array(
             'role' => $role,
             'firstName' => $firstName,
@@ -208,7 +209,8 @@ function getProfileDetails($conn){
             'postcode' => $postcode,
             'email' => $email,
             'street'=> $street,
-            'dob' => $dob
+            'dob' => $dob,
+            'profilePicture' => $profilePicture
         );
         http_response_code(200);
         echo json_encode($profile);

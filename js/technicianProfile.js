@@ -16,7 +16,7 @@ fetch('api/crudHandler.php', {
     return res.json();
 })
 .then(data => {
-    document.getElementById("profilePic").src = data.profilePic;
+    document.getElementById("profilePicture").src = "src/profilePictures/" + data.profilePicture + ".jpg";
     document.getElementById("fullName").innerHTML = data.firstName + " " + data.lastName;
     document.getElementById("emailAddress").innerHTML = data.email;
     document.getElementById("phoneNumber").innerHTML = data.phoneNumber;
