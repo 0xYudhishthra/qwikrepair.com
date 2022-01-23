@@ -96,12 +96,12 @@
                         <div class="font-small progress-desc">Your appointment has been successfully created. Waiting for the technician's confirmation.</div>
                     </div>
                     <div class="step">
-                        <div id="num-3" class="num">3</div>
+                        <div id="num-3" class="num">2</div>
                         <div class="progress-title">Appointment Confirmed</div>
                         <div class="font-small progress-desc">Your appointment has been accepted by the technician.</div>
                     </div>
                     <div class="step">
-                        <div id="num-4" class="num">4</div>
+                        <div id="num-4" class="num">3</div>
                         <div class="progress-title">Appointment Completed</div>
                         <div class="font-small progress-desc">The appointment has been successfully completed by a technician.</div>
                     </div>
@@ -129,12 +129,12 @@
                 </div>
                 <div class="progress-wrapper">
                     <div class="step">
-                        <div id="num-1" class="num">1</div>
+                        <div id="num-1" class="num num-active">1</div>
                         <div class="progress-title">Appointment Created</div>
                         <div class="font-small progress-desc">Your appointment has been successfully created. Waiting for the technician's confirmation.</div>
                     </div>
                     <div class="step">
-                        <div id="num-3" class="num">2</div>
+                        <div id="num-3" class="num num-active">2</div>
                         <div class="progress-title">Appointment Confirmed</div>
                         <div class="font-small progress-desc">Your appointment has been accepted by the technician.</div>
                     </div>

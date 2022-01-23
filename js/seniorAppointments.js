@@ -21,13 +21,25 @@ function showBookCard() {
     }
 }
 
-function showStatusCard(){
+function showStatusCard(data){
     if (statusCard != null) {
         statusCard.style.display = "flex";
+        if (data.appointmentStatus == "1") {
+            num1 = document.getElementById("num-1");
+            num1.classList.add("num-active");
+        } else {
+            num1 = document.getElementById("num-1");
+            num1.classList.add("num-active");
+            num2 = document.getElementById("num-3");
+            num2.classList.add("num-active");
+        }
     }
 }
 
-function showReviewCard() {
+        
+
+
+function showReviewCard(data) {
     if (reviewCard != null) {
         reviewCard.style.display = "flex";
     }
@@ -44,17 +56,17 @@ document.addEventListener("DOMContentLoaded", function() {
         return res.json();
     })
     .then(data => {
-        if (data == 0) {
-            generateServiceCards();
-        } else {
+        if (data.appointmentStatus == "3") {
+            showReviewCard(data);
+        } else if (data.appointmentStatus == "1" || data.appointmentStatus == "2") {
             showStatusCard(data); 
-        }
+        } else 
+            generateServiceCards();
     })
     .catch(err => {
         console.log(err);
     });
 });
-
 
 function generateServiceCards() {
     let formData = new FormData();

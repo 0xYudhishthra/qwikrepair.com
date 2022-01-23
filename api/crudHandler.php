@@ -298,7 +298,7 @@ function getAppointmentDetails($conn){
             FROM appointment a 
             LEFT JOIN service s ON a.serviceID = s.serviceID
             LEFT JOIN user u ON s.userID = u.userID
-            WHERE a.userID = (SELECT userID FROM user WHERE emailAddress = '$email') AND a.appointmentStatus != 3";
+            WHERE a.userID = (SELECT userID FROM user WHERE emailAddress = '$email') AND a.appointmentStatus IN (1,2,3)";
           
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
