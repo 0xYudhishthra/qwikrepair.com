@@ -18,7 +18,7 @@
 <body>
     <?php include "template/navbarUser.php" ?>
     <div class="dashboard-wrapper">
-        <?php include "template/sideNav.php" ?>
+        <?php include "template/seniorSideNav.php" ?>
         <div class="content-wrapper">
             <div class="greet-wrapper">
                 <div class="greet-hi font-title">Hello, <?php 

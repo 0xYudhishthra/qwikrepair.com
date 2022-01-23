@@ -87,7 +87,7 @@ function getBriefAppointmentHistory() {
     return appointmentArray; 
 }
 
-alert (appointmentArray);
+// alert (appointmentArray);
 
 getBriefAppointmentHistory();
 displayPastAppoCard(appointmentArray);

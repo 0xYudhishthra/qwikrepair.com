@@ -19,7 +19,7 @@
 <body>
     <?php include "template/navbarUser.php" ?>
     <div>
-        <?php include "template/sideNav.php" ?>
+        <?php include "template/seniorSideNav.php" ?>
         <div class="content-wrapper">
             <!-- <table class="profile-table">
                 <tr>

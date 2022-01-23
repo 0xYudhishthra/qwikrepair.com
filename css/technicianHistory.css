@@ -1,0 +1,56 @@
+.content-wrapper {
+    height: calc(100vh - 50px);
+    width: 80vw;
+    background-color: #F6F8FE;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: inline-block;
+}
+
+.table-wrapper {
+    margin: 0 auto;
+    width: 90%;
+    height: 85%;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 3px grey;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.content-wrapper .title {
+    margin: 2% 0;
+    margin-left: 5%;
+    width: 100%;
+}
+
+.table *:not(tr) {
+    display: block;
+    width: 100%;
+    height: fit-content;
+}
+
+.table-wrapper .load-more {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.table tr {
+    height: 50px;
+    border-bottom: 1px solid rgb(170, 170, 170);
+    padding: 0 30px;
+}
+
+.table tr td, .table tr th {
+    border: none;
+}
+
+.table .stars {
+    display: flex;
+}
+
+.table .stars .star {
+    margin-right: 2px;
+    width: 20px;
+}

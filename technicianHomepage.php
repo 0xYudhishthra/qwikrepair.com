@@ -12,13 +12,13 @@
     <link type="text/css" rel="stylesheet" href="css/navbar.css">
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
-    <link type="text/css" rel="stylesheet" href="css/seniorHomepage.css">
+    <link type="text/css" rel="stylesheet" href="css/technicianHomepage.css">
     <script type="text/javascript" src="js/seniorHomepage.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
     <div class="dashboard-wrapper">
-        <?php include "template/sideNav.php" ?>
+        <?php include "template/technicianSideNav.php" ?>
         <div class="content-wrapper">
             <div class="greet-wrapper">
                 <div class="greet-hi font-title">Hello, <?php 
@@ -27,19 +27,14 @@
                 <div class="greet-hope font-medium">hope you are having a good day!</div>
                 <div id="greetDate" class="greet-date font-title">Hayday, 1 Cucumber</div>
             </div>
-            <div class="card-wrapper appo-history">
-                <div class="appo-history-title font-medium">Past Appointments</div>
+            <div class="card-wrapper appo-listings">
+                <div class="appo-history-title font-medium">Appointment Listings</div>
                 <div class="divider"></div>
                 <div id="pastAppoCardWrap" class="appo-card-wrapper"></div>
             </div>
             <div class="sub-wrapper">
-                <div class="card-wrapper instant-appo">
-                    <div class="inst-title">QwikAppoint</div>
-                    <div class="divider"></div>
-                    <div id="instList" class="inst-list"></div>
-                </div>
                 <div class="card-wrapper appo-stat">
-                    <div class="stat-title">Appointment Status</div>
+                    <div class="stat-title">Upcoming Appointments</div>
                     <div class="divider"></div>
                     <div class="stat-ctn-wrapper">
                         <div class="stat-detail-wrapper">

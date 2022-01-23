@@ -1,5 +1,5 @@
 <?php session_start(); 
-    if (isset($_SESSION['email']) && $_SESSION['role'] !== 'senior')
+    if (isset($_SESSION['email']) && $_SESSION['role'] !== 'technician')
         header("Location: index.php");
     if (!isset($_SESSION['email']))
         header("Location: index.php");
@@ -13,13 +13,13 @@
     <link type="text/css" rel="stylesheet" href="css/navbar.css">
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
-    <link type="text/css" rel="stylesheet" href="css/seniorHistory.css">
+    <link type="text/css" rel="stylesheet" href="css/technicianHistory.css">
     <script src="js/seniorHistory.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
     <div>
-        <?php include "template/sideNav.php" ?>
+        <?php include "template/technicianSideNav.php" ?>
         <div class="content-wrapper">
         <div class="font font-large title">Appointment History</div>
             <div class="table-wrapper">
