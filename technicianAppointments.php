@@ -21,6 +21,7 @@
     <div>
         <?php include "template/technicianSideNav.php" ?>
         <div class="content-wrapper">
+            <div id="noAppo" class="font-title appo-no">No Appointment Found :(</div>
             <div id="cardWrapper" class="card-wrapper">
                 <!-- <div class="card">
                     <img class="card-pic" src="src/eye-crossed.svg">

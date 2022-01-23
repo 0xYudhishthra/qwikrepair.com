@@ -74,6 +74,8 @@ body {
 
 .card .card-tech-name, .card .card-desc {
     margin-top: 5px;
+    white-space: normal;
+    text-align: center;
 }
 
 .card .card-btn {

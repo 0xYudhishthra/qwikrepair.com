@@ -8,7 +8,6 @@
     <div id="btnNavigation" class="btn-navigation">
         <a id="index" href="index.php">Home</a>
         <a id="aboutus" href="aboutus.php">About Us</a>
-        <a id="services" href="services.php">Services</a>
         <a id="faq" href="faq.php">FAQ</a>
     </div>
     <div id="btnAccess" class="btn-access">

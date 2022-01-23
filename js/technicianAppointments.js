@@ -82,12 +82,9 @@ function addJobCard(cardPic, serviceName, seniorName, appointmentDate, appointme
 
 function emptyJobCard(){
     cardWrapper = document.getElementById("cardWrapper");
-    if (cardWrapper != null) {
-        cardWrapper.innerHTML += `
-            <div class="card">
-                <div class="card-service-name font font-medium">No appointments.</div>
-            </div>
-            `
+    if ((cardWrapper != null) && (noAppo !=null)) {
+        cardWrapper.style.display = "none";
+        noAppo.style.display = "block";
     }
 }
 
