@@ -103,7 +103,7 @@ body {
 }
 
 .overlay {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -149,7 +149,7 @@ body {
 }
 
 .overlay .list-add-form {
-    display: flex;
+    /* display: flex; */
 }
 
 .list-add-form .list-form {
