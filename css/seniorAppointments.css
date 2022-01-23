@@ -8,7 +8,7 @@ body {
     background-color: #F6F8FE;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -86,4 +86,221 @@ body {
 .card .card-pic {
     width: 70px;
     border-radius: 35px;
+}
+
+.book-card, .status-card, .review-card {
+    width: 95%;
+    height: 95%;
+    margin: auto;
+    background-color: white;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(10 , 10%);
+    grid-template-rows: repeat(10, 10%);
+}
+
+.book-card img {
+    grid-column: 2 / 4;
+    grid-row: 2 / 5;
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    justify-self: center;
+}
+
+.text-wrapper {
+    grid-column: 4 / 10;
+    grid-row: 2 / 10;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.text-wrapper .service-name {
+    margin-top: 50px;
+}
+
+.form {
+    margin-top: 5%;
+    width: 100%;
+    display: block;
+}
+
+.form input {
+    margin-bottom: 15px;
+}
+
+.form input:not(.btn) {
+    outline: none;
+    border: solid 1.5px black;
+    border-radius: 6px;
+    width: 250px;
+    height: 40px;
+    margin: 0 70px 20px 0;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.form input:focus {
+    box-shadow: 0 0 3px #94D1EA;
+    border-color: #94D1EA;
+}
+
+.form .btn {
+    margin: 0 25px 0 0;
+}
+
+.status-card, .review-card {
+    display: flex;
+    padding: 50px;
+    justify-content: space-evenly;
+}
+
+.status-card img, .review-card img {
+    width: 10%;
+    /* margin-bottom: ; */
+}
+
+.detail-wrapper, .detail-wrapper .appo-detail, .progress-wrapper {
+    display: block;
+}
+
+.detail-wrapper, .progress-wrapper {
+    width: 30%;
+}
+
+.detail-wrapper .appo-detail {
+    margin-top: 15%;
+}
+
+.appo-detail .appo-t {
+    margin-top: 5%;
+}
+
+.appo-detail .btn {
+    margin: 5% 0;
+}
+
+.progress-wrapper .step {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2 , 50%);
+    white-space: nowrap;
+    margin: 30px 0;
+}
+
+.step .num {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    border: solid 2px #94D1EA;
+    color: #94D1EA;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.step .num-active {
+    background-color: #94D1EA;
+    color: white;
+}
+
+.step .progress-title {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+}
+
+.step .progress-desc {
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+    width: 100%;
+    white-space: normal;
+    color: grey;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 6;
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100vw;
+}
+
+.overlay-content {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.confirm, .success, .cancel {
+    display: none;    
+    padding: 50px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 3px grey;
+}
+
+.overlay-t {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.overlay-d {
+    max-width: 30vw;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.overlay-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.review-detail, .review-detail * {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.review-header {
+    margin-top: 30px;
+    justify-content: left;
+    display: block;
+}
+
+.review-star {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.star {
+    cursor: pointer;
+    width: 20px;
+    padding: 0 3px;
+}
+
+.star img {
+    width: 100%;
+}
+
+.review-desc {
+    justify-content: flex-start;
+    padding: 10px;
+    height: 180px;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+.review-form .btn {
+    margin-top: 30px;
+    width: fit-content;
 }

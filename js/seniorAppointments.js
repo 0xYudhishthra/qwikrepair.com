@@ -77,14 +77,27 @@ function addServiceCard(cardPic, serviceName, techName, serviceDescription, redi
     }
 }
 
-function emptyServiceCard(){
-    cardWrapper = document.getElementById("cardWrapper");
-    if (cardWrapper != null) {
-        cardWrapper.innerHTML += `
-            <div class="card">
-                <div class="card-service-name font font-medium">No Services Available</div>
-            </div>
-            `
+function starHover(rate) {
+    reviewStar = document.getElementById("reviewStar");
+    if (reviewStar != null) {
+        reviewStar.innerHTML = starHtml(rate);
     }
 }
 
+function starHtml(rate) {
+    var html = ``
+    var a = 1
+    for (i=1 ; i <= rate ; i++) {
+        html += `<div onclick="starHover(${a})" class="star"><img src="src/star-solid.svg"></div>`
+        a++
+    }
+    for (i=1 ; i <= (5-rate) ; i++) {
+        html += `<div onclick="starHover(${a})" class="star"><img src="src/star-empty.svg"></div>`
+        a++
+    }
+    return html
+}
+
+for (i=0; i < 10; i++) {
+    addServiceCard("src/home.svg", "Plumbing", "John", "I will plumb ur backdoor.")
+}
