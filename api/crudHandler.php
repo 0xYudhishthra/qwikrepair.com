@@ -429,12 +429,45 @@ function listJobs($conn){
     }
 }
 
-function submitReview(){
+function submitReview($conn){
     // Get the data from the POST request
-    $review = $_POST['review'];
+    $reviewFeedback = $_POST['reviewFeedback'];
+    $reviewRating = $_POST['reviewRating'];
+
+    // Get the email address from the session
+    session_start();
+    $email = $_SESSION['email'];
+
+    //Create query to insert the review into the database. The appointmentID is for the most recent appointment with an appointment status of 3.
+    $sql = "INSERT INTO service_review (reviewFeedback, reviewRating, appointmentID)
+            VALUES ('$reviewFeedback', '$reviewRating', 
+            (SELECT appointmentID FROM appointment WHERE userID = 
+            (SELECT userID FROM user WHERE emailAddress = '$email') AND appointmentStatus = 3 
+            ORDER BY appointmentID DESC LIMIT 1))";
+
+    //Execute the query
+    $result = $conn->query($sql);
+
+
+    // //If the query was successful, change the appointment status to 4.
+    if ($result){
+        $sql = "UPDATE appointment SET appointmentStatus = 4 WHERE userID =
+        (SELECT userID FROM user WHERE emailAddress = '$email') AND appointmentStatus = 3";
+        $result = $conn->query($sql);
+        if ($result){
+            echo 1;
+        }
+        else {
+            echo 0;
+        }
+    }
+    else {
+        echo 0;
+    }
 
 
 }
+
 function acceptAppointment(){}
 
 function rejectAppointment(){}

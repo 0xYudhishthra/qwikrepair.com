@@ -89,7 +89,8 @@ function getBriefAppointmentHistory() {
 
 // alert (appointmentArray);
 
-getBriefAppointmentHistory();
+// getBriefAppointmentHistory();
+
 displayPastAppoCard(appointmentArray);
 
 serviceArray = ['Aircon Service', 'Dust Clean', 'Plumbing'];

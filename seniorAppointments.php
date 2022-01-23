@@ -14,8 +14,8 @@
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/seniorAppointments.css">
-    <script type="text/javascript" src="js/seniorAppointments.js" defer></script>
     <script type="text/javascript" src="js/submitReview.js" defer></script>
+    <script type="text/javascript" src="js/seniorAppointments.js" defer></script>
 </head>
 <body>
     <div class="overlay">
@@ -117,11 +117,11 @@
                         <div class="font-medium review-header">Review</div>
                         <form class="review-form" id="reviewForm">
                             <div id="reviewStar" class="review-star">
-                                <div onclick="starHover(1)" class="star"><img src="src/star-empty.svg"></div>
-                                <div onclick="starHover(2)" class="star"><img src="src/star-empty.svg"></div>
-                                <div onclick="starHover(3)" class="star"><img src="src/star-empty.svg"></div>
-                                <div onclick="starHover(4)" class="star"><img src="src/star-empty.svg"></div>
-                                <div onclick="starHover(5)" class="star"><img src="src/star-empty.svg"></div>
+                                <div onclick="starHover(1)" class="star" value="1"><img src="src/star-empty.svg"></div>
+                                <div onclick="starHover(2)" class="star" value="2"><img src="src/star-empty.svg"></div>
+                                <div onclick="starHover(3)" class="star" value="3"><img src="src/star-empty.svg"></div>
+                                <div onclick="starHover(4)" class="star" value="4"><img src="src/star-empty.svg"></div>
+                                <div onclick="starHover(5)" class="star" value="5"><img src="src/star-empty.svg"></div>
                             </div>
                             <textarea id="reviewFeedback" class="review-desc" placeholder="Thanks for helping me, god bless you!"></textarea>
                             <input type="submit" class="btn btn-blue submit" id="submitReviewBtn">

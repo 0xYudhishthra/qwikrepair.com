@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", function() {
             showStatusCard(data); 
         } else 
             generateServiceCards();
-        submitReview(data);
-
 
     })
     .catch(err => {
         console.log(err);
     });
-});
+}, {once: true});
+
+
 
 function generateServiceCards() {
     let formData = new FormData();
@@ -120,11 +120,14 @@ function addServiceCard(cardPic, serviceName, techName, serviceDescription, redi
     }
 }
 
+var starValue = 1;
+
 function starHover(rate) {
     reviewStar = document.getElementById("reviewStar");
     if (reviewStar != null) {
         reviewStar.innerHTML = starHtml(rate);
     }
+    starValue = rate;
 }
 
 function starHtml(rate) {

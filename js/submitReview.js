@@ -1,34 +1,29 @@
-function submitReview(){
-    var submitReview = document.querySelector('input[type="submit"]');
-    var appointmentID = data.appointmentID;
-    if (submitReview != null) {
-        submitReview.addEventListener('click', () => {
-            const formData = new FormData();
-            formData.append("request-type", "submitReview");
-            formData.append("appointmentID", appointmentID);
-            formData.append("reviewFeedback", document.getElementById("reviewFeedback").value);
-            formData.append("reviewRating", document.getElementById("reviewStar").value);
+var submitReview = document.getElementById('submitReviewBtn');
 
-
-            fetch('api/crudHandler.php', {
-                method: 'POST',
-                body: formData,
-                credentials:'include'
-            })
-            .then (res => {
-                return res.status;
-            })
-            .then(data => {
-                if (data == 200) {
-                    alert("Review submitted!");
-                    window.location.href = "seniorHomepage.php";
-                } else {
-                    alert("Something went wrong!");
-                }
-            })
-            .catch(err => {
-                console.log(err);
+if (submitReview != null) {
+    submitReview.addEventListener('click', () => {
+        var formData = new FormData();
+        formData.append("request-type", "submitReview");
+        formData.append("reviewFeedback", document.getElementById("reviewFeedback").value);
+        formData.append("reviewRating", starValue);
+        fetch('api/crudHandler.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => {
+            return res.status();
+        })
+        .then(data => {
+            if (data == 1) {
+                alert("You have successfully submitted your review!");
+                window.location.href = "seniorHomepage.php";
+            } else {
+                alert("Failed to submit your review.");
             }
-            );
+        })
+        .catch(err => {
+            console.log(err);
         });
-}}
+    });
+}
+
