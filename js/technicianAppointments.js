@@ -32,17 +32,17 @@ function generateJobCards() {
         body: formData
     })
     .then(res => {
-        return res.text();
+        return res.json();
     })
     .then(data => {
-        // if (data == 0) {
-        //     emptyJobCard()
-        // } else {
-        //     for (i=0; i < data.length; i++) {
-        //         addJobCard("src/home.svg", data[i].serviceName, data[i].seniorName, data[i].appointmentDate, data[i].appointmentTime, "");
-        //     }
-        alert(data);
-    } )
+        if (data == 0) {
+            emptyJobCard()
+        } else {
+            for (i=0; i < data.length; i++) {
+                addJobCard("src/home.svg", data[i].serviceName, data[i].fullName, data[i].appointmentDate, data[i].appointmentTime, "");
+            }
+        }
+    })
     .catch(err => {
         console.log(err);
     });

@@ -373,29 +373,25 @@ function getConfirmedAppointmentDetails($conn){
                 FROM appointment a 
                 LEFT JOIN service s ON a.serviceID = s.serviceID
                 LEFT JOIN user u ON a.userID = u.userID
-                WHERE a.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user where emailAddress = $email )) AND a.appointmentStatus = 2";
+                WHERE a.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user where emailAddress = '$email'))  AND a.appointmentStatus = 2";
               
         $result = $conn->query($sql);
-        if (!empty($result) && $result->num_rows > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $serviceName = $row['serviceName'];
-            $fullName = $row['firstName'] . " " . $row['lastName'];
-            $appointmentDate = $row['appointmentDate'];
-            $appointmentTime = $row['appointmentTime'];
-            $street = $row['street'];
-            $city = $row['city'];
-            $state = $row['state'];
-            $postcode = $row['postcode'];
-            $appointment = array(
-                'serviceName' => $serviceName,
-                'fullName' => $fullName,
-                'appointmentDate' => $appointmentDate,
-                'appointmentTime' => $appointmentTime,
-                'street' => $street,
-                'city' => $city,
-                'state' => $state,
-                'postcode' => $postcode
-            );
+        if ($result->num_rows > 0) {
+            $confirmedAppointments = array();
+            while($row = mysqli_fetch_assoc($result)){
+                $appointment = array(
+                    'serviceName' => $row['serviceName'],
+                    'firstName' => $row['firstName'],
+                    'lastName' => $row['lastName'],
+                    'appointmentDate' => $row['appointmentDate'],
+                    'appointmentTime' => $row['appointmentTime'],
+                    'street' => $row['street'],
+                    'city' => $row['city'],
+                    'state' => $row['state'],
+                    'postcode' => $row['postcode']
+                );
+                array_push($confirmedAppointments, $appointment);
+            }
             http_response_code(200);
             echo json_encode($appointment);
         }
@@ -411,7 +407,7 @@ function listJobs($conn){
     FROM appointment
     LEFT JOIN service ON appointment.serviceID = service.serviceID
     LEFT JOIN user ON appointment.userID = user.userID
-    WHERE appointment.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user WHERE emailAddress = $email)) and appointment.appointmentStatus = 1";
+    WHERE appointment.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user WHERE emailAddress = '$email')) and appointment.appointmentStatus = 1";
 
     $result = $conn->query($sql);
     if (!empty($result) && $result->num_rows > 0) {
