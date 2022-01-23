@@ -12,3 +12,5 @@ function setUserName(name) {
         userName.innerHTML="name";
     }
 }
+
+//Get personal details from database and update in navbar

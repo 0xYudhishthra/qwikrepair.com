@@ -15,7 +15,7 @@ if (submitReview != null) {
         })
         .then(data => {
             if (data == 1) {
-                alert("You have successfully submitted your review!");
+                window.alert("You have successfully submitted your review!");
                 window.location.href = "seniorHomepage.php";
             } else {
                 alert("Failed to submit your review.");

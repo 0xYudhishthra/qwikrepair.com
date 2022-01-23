@@ -239,7 +239,7 @@ function getAppointmentHistory($conn){
             LEFT JOIN service ON appointment.serviceID = service.serviceID
             LEFT JOIN user ON service.userID = user.userID
             LEFT JOIN service_review ON service_review.appointmentID = appointment.appointmentID
-            WHERE appointment.userID = '$userID' AND appointment.appointmentStatus = 3";
+            WHERE appointment.userID = '$userID' AND appointment.appointmentStatus >= 3";
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
         $appointments = array();
