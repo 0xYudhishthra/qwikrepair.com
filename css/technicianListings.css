@@ -76,11 +76,19 @@ body {
     margin-top: 5px;
 }
 
-.card .card-btn {
+.card .card-btn-edit {
     width: fit-content;
     position: absolute;
     bottom: 0;
     margin-bottom: 15px;
+}
+
+.card .card-btn-delete {
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    background-color: red
 }
 
 .card .card-pic {

@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/technicianListings.css">
-    <script type="text/javascript" src="js/seniorAppointments.js" defer></script>
+    <script type="text/javascript" src="js/technicianListings.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>

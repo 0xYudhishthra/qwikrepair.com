@@ -373,7 +373,7 @@ function getConfirmedAppointmentDetails($conn){
                 FROM appointment a 
                 LEFT JOIN service s ON a.serviceID = s.serviceID
                 LEFT JOIN user u ON a.userID = u.userID
-                WHERE a.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user where emailAddress = '$email'))  AND a.appointmentStatus = 2";
+                WHERE a.serviceID IN (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user where emailAddress = '$email'))  AND a.appointmentStatus = 2";
               
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -427,5 +427,9 @@ function listJobs($conn){
         echo 0;
     }
 }
+
 function acceptAppointment(){}
+
+function rejectAppointment(){}
+
 ?>

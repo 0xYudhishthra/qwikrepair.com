@@ -3,7 +3,7 @@ searchBox = document.getElementById("searchBox");
 
 document.addEventListener("DOMContentLoaded", function() {
     let formData = new FormData();
-    formData.append("request-type", "getConfirmedAppointmentDetails");
+    formData.append("request-type", "listService");
     fetch('api/crudHandler.php', {
         method: 'POST',
         body: formData
@@ -13,42 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then(data => {
         if (data == 0) {
-            generateJobCards();
-        } else {
-            displayJobStatus(data); 
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
-});
-
-
-function generateJobCards() {
-    let formData = new FormData();
-    formData.append("request-type", "listJobs");
-    fetch('api/crudHandler.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-        if (data == 0) {
-            emptyJobCard()
+            emptyJobCard();
         } else {
             for (i=0; i < data.length; i++) {
-                addJobCard("src/home.svg", data[i].serviceName, data[i].fullName, data[i].appointmentDate, data[i].appointmentTime, "");
+                addJobCard("src/home.svg", data[i].serviceName, data[i].serviceDescription); 
             }
         }
     })
     .catch(err => {
         console.log(err);
     });
-}
-        
-
+}); 
 
 function searchFocus() {
     if ((searchBox != null) && (searchText != null)) {
@@ -64,17 +39,16 @@ function searchOutFocus() {
     }
 }
 
-function addJobCard(cardPic, serviceName, seniorName, appointmentDate, appointmentTime, redirectUrl="") {
+function addJobCard(cardPic, serviceName, serviceDescription, redirectUrl="") {
     cardWrapper = document.getElementById("cardWrapper");
     if (cardWrapper != null) {
         cardWrapper.innerHTML += `
             <div class="card">
                 <img class="card-pic" src="${cardPic}">
                 <div class="card-service-name font font-medium">${serviceName}</div>
-                <div class="card-senior-name font">${seniorName}</div>
-                <div class="card-desc font font-small">${appointmentDate}</div>
-                <div class="card-desc font font-small">${appointmentTime}</div>
-                <a class="btn btn-blue card-btn" href=${redirectUrl}>Select Job</a>
+                <div class="card-desc font font-small">${serviceDescription}</div>
+                <a class="btn btn-blue card-btn-edit" href=${redirectUrl}>Edit</a>
+                <a class="btn btn-blue card-btn-delete" href=${redirectUrl}>Delete</a>
             </div>
             `
     }
@@ -85,7 +59,7 @@ function emptyJobCard(){
     if (cardWrapper != null) {
         cardWrapper.innerHTML += `
             <div class="card">
-                <div class="card-service-name font font-medium">No appointments.</div>
+                <div class="card-service-name font font-medium">No Service Added</div>
             </div>
             `
     }
