@@ -78,6 +78,7 @@ function getBriefAppointmentHistory() {
     })
     .then(response => response.json())
     .then(data => {
+        alert(data[0].serviceName);
         for (var i=0; i < data.length; i++) {
             serviceName = data[i].serviceName;
             fullName = data[i].fullName;
@@ -87,9 +88,6 @@ function getBriefAppointmentHistory() {
     return appointmentArray; 
 }
 
-// alert (appointmentArray);
-
-// getBriefAppointmentHistory();
 
 displayPastAppoCard(appointmentArray);
 

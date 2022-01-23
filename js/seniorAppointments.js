@@ -65,7 +65,31 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 }, {once: true});
 
-
+//Get book now with input type = submit
+function bookAppointment(serviceName, techName) {
+    var formData = new FormData();
+    formData.append("request-type", "bookAppointment");
+    formData.append("serviceName", serviceName);
+    formData.append("techName", techName);
+    fetch('api/crudHandler.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => {
+        return res.status();
+    })
+    .then(data => {
+        if (data == 1) {
+            window.alert("You have successfully booked an appointment!");
+            window.location.href = "seniorHomepage.php";
+        } else {
+            alert("Failed to book an appointment.");
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
 
 function generateServiceCards() {
     let formData = new FormData();
@@ -114,11 +138,12 @@ function addServiceCard(cardPic, serviceName, techName, serviceDescription, redi
                 <div class="card-service-name font font-medium">${serviceName}</div>
                 <div class="card-tech-name font">${techName}</div>
                 <div class="card-desc font font-small">${serviceDescription}</div>
-                <a class="btn btn-blue card-btn" href=${redirectUrl}>Book Now</a>
+                <a class="btn btn-blue card-btn" type="submit" href='${redirectUrl}' id=${serviceName}${techName}>Book Now</a>
             </div>
             `
     }
 }
+
 
 var starValue = 1;
 
