@@ -31,16 +31,3 @@ fetch('api/crudHandler.php', {
 }
 );
 
-    
-
-
-// city: "Cheras"
-// dob: "1996-01-06"
-// email: "ali@gmail.com"
-// firstName: "Ali"
-// lastName: "Khan"
-// phoneNumber: "145679988"
-// postcode: "45600"
-// role: "technician"
-// state: "Selangor"
-// street: "Persiaran Bukit Changkat"

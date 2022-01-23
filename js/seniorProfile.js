@@ -1,38 +1,32 @@
-Element.prototype.appendAfter = function (element) {
-    element.parentNode.insertBefore(this, element.nextSibling);
-}, false;
+// Hide the profile-edit class when the page loads
+profileTable = document.getElementById("profile-table");
+profileTable.style.display = "flex";
 
-function instantiateElement(data, elementID, elementType) {
-        var element = document.createElement(elementType);
-        element.innerHTML = data;
-        element.id = elementID;
-        element.appendChild(document.createElement("br"));
-        return element;
-};
+profileEdit = document.getElementById("profile-edit");
+profileEdit.style.display = "none";
 
-document.addEventListener("DOMContentLoaded", function() {
-    let formData = new FormData();
-    formData.append("request-type", "getProfileDetails");
-    fetch('api/crudHandler.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-        instantiateElement(data['firstName'] + ' ' + data['lastName'], 'fullNameData', 'div').appendAfter(document.getElementById('fullName'));
-        instantiateElement(data['email'], 'emailData', 'p').appendAfter(document.getElementById('emailAddress'));
-        instantiateElement(data['role'], 'roleData', 'p').appendAfter(document.getElementById('role'));
-        instantiateElement(data['dob'], 'dobData', 'h3').appendAfter(document.getElementById('dob'));
-        instantiateElement(data['phoneNumber'], 'phoneNumberData', 'h3').appendAfter(document.getElementById('phoneNumber'));
-        instantiateElement(data['street'], 'streetData', 'h3').appendAfter(document.getElementById('street'));
-        instantiateElement(data['city'], 'cityData', 'h3').appendAfter(document.getElementById('city'));
-        instantiateElement(data['state'], 'stateData', 'h3').appendAfter(document.getElementById('state'));
-        instantiateElement(data['postcode'], 'postcodeData', 'h3').appendAfter(document.getElementById('postcode'));
-    })
-    .catch(err => {
-        console.log(err);
-    }
-    );
-});
+//Get personal info from database
+formData = new FormData();
+formData.append("request-type", "getProfileDetails");
+fetch('api/crudHandler.php', {
+    method: 'POST',
+    body: formData
+})
+.then(res => {
+    return res.json();
+})
+.then(data => {
+    document.getElementById("profilePicture").src = "src/profilePictures/" + data.profilePicture + ".jpg";
+    document.getElementById("fullName").innerHTML = data.firstName + " " + data.lastName;
+    document.getElementById("emailAddress").innerHTML = data.email;
+    document.getElementById("phoneNumber").innerHTML = data.phoneNumber;
+    document.getElementById("dob").innerHTML = data.dob;
+    document.getElementById("phoneNumber").innerHTML = data.phoneNumber;
+    document.getElementById("homeAddress").innerHTML = data.street + ", " + data.city + ", " + data.state + ", " + data.postcode;
+
+    //End
+})
+.catch(err => {
+    console.log(err);
+}
+);
