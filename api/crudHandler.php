@@ -452,7 +452,6 @@ function submitReview($conn){
     //Execute the query
     $result = $conn->query($sql);
 
-
     // //If the query was successful, change the appointment status to 4.
     if ($result){
         $sql = "UPDATE appointment SET appointmentStatus = 4 WHERE userID =
@@ -461,15 +460,8 @@ function submitReview($conn){
         if ($result){
             echo 1;
         }
-        else {
-            echo 0;
-        }
-    }
-    else {
-        echo 0;
-    }
-
-
+        else { echo 0;}
+    } else { echo 0;}
 }
 
 function deleteServiceListing($conn){

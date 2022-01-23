@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/technicianHistory.css">
-    <script src="js/seniorHistory.js" defer></script>
+    <script src="js/technicianHistory.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
@@ -28,11 +28,10 @@
                         <th class="date-h">Date</th>
                         <th class="time-h">Time</th>
                         <th class="service-name-h">Service Name</th>
-                        <th class="tech-name-h">Technician</th>
+                        <th class="tech-name-h">Senior</th>
                         <th class="review-h">Review</th>
                     </tr>
                 </table>
-                <!-- <div class="btn btn-blue load-more">Load More</div> -->
             </div>
         </div>
     </div>
