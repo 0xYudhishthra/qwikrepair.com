@@ -38,9 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getAppoin
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getBriefAppointmentHistory')
     getBriefAppointmentHistory($conn);
 
-    //This function is used to sign up a new user.
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getConfirmedAppointmentDetails')
+    getConfirmedAppointmentDetails($conn);
 
-    function signup($conn){
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'listJobs')
+    listJobs($conn);
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'acceptAppointment')
+    acceptAppointment($conn);
+
+
+//This function is used to sign up a new user.
+function signup($conn){
     // Get the data from the request
     $email = $_POST['email'];
     $pwd = $_POST['pwd'];
@@ -230,7 +238,7 @@ function getAppointmentHistory($conn){
             LEFT JOIN service ON appointment.serviceID = service.serviceID
             LEFT JOIN user ON service.userID = user.userID
             LEFT JOIN service_review ON service_review.appointmentID = appointment.appointmentID
-            WHERE appointment.userID = '$userID' AND appointment.appointmentStatus = 4";
+            WHERE appointment.userID = '$userID' AND appointment.appointmentStatus = 3";
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
         $appointments = array();
@@ -290,7 +298,7 @@ function getAppointmentDetails($conn){
             FROM appointment a 
             LEFT JOIN service s ON a.serviceID = s.serviceID
             LEFT JOIN user u ON s.userID = u.userID
-            WHERE a.userID = (SELECT userID FROM user WHERE emailAddress = '$email') AND a.appointmentStatus != 4";
+            WHERE a.userID = (SELECT userID FROM user WHERE emailAddress = '$email') AND a.appointmentStatus != 3";
           
     $result = $conn->query($sql);
     if ($result->num_rows > 0){
@@ -353,10 +361,75 @@ function listService($conn){
     else {
         echo 0;
     }
-
-
-    
 }
 
+function getConfirmedAppointmentDetails($conn){
+        //Get the email address from the session
+        session_start();
+        $email = $_SESSION['email'];
 
+        //Determine if appointment records exist for this user and if yes, return the status of the appointment
+        $sql = "SELECT s.serviceName, u.firstName, u.lastName, a.appointmentDate, a.appointmentTime, a.street, a.city, a.state, a.postcode 
+                FROM appointment a 
+                LEFT JOIN service s ON a.serviceID = s.serviceID
+                LEFT JOIN user u ON a.userID = u.userID
+                WHERE a.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user where emailAddress = $email )) AND a.appointmentStatus = 2";
+              
+        $result = $conn->query($sql);
+        if (!empty($result) && $result->num_rows > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $serviceName = $row['serviceName'];
+            $fullName = $row['firstName'] . " " . $row['lastName'];
+            $appointmentDate = $row['appointmentDate'];
+            $appointmentTime = $row['appointmentTime'];
+            $street = $row['street'];
+            $city = $row['city'];
+            $state = $row['state'];
+            $postcode = $row['postcode'];
+            $appointment = array(
+                'serviceName' => $serviceName,
+                'fullName' => $fullName,
+                'appointmentDate' => $appointmentDate,
+                'appointmentTime' => $appointmentTime,
+                'street' => $street,
+                'city' => $city,
+                'state' => $state,
+                'postcode' => $postcode
+            );
+            http_response_code(200);
+            echo json_encode($appointment);
+        }
+        else {
+            echo 0;
+        }
+}
+
+function listJobs($conn){
+    session_start();
+    $email = $_SESSION['email'];
+    $sql = "SELECT service.serviceName, user.firstName, user.lastName, appointment.appointmentDate, appointment.appointmentTime 
+    FROM appointment
+    LEFT JOIN service ON appointment.serviceID = service.serviceID
+    LEFT JOIN user ON appointment.userID = user.userID
+    WHERE appointment.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user WHERE emailAddress = $email)) and appointment.appointmentStatus = 1";
+
+    $result = $conn->query($sql);
+    if (!empty($result) && $result->num_rows > 0) {
+        $appointments = array();
+        while($row = mysqli_fetch_assoc($result)){
+            $appointment = array(
+                'serviceName' => $row['serviceName'],
+                'fullName' => $row['firstName'] . " " . $row['lastName'],
+                'appointmentDate' => $row['appointmentDate'],
+                'appointmentTime' => $row['appointmentTime']
+            );
+            array_push($appointments, $appointment);
+        }
+        http_response_code(200);
+        echo json_encode($appointments);
+    } else {
+        echo 0;
+    }
+}
+function acceptAppointment(){}
 ?>

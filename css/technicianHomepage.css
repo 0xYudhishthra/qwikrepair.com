@@ -144,7 +144,7 @@ body {
 }
 
 .stat-btn-wrap {
-    grid-column: 4 / -1;
+    grid-column: 5 / -1;
     grid-row: 1 / 2;
 }
 
