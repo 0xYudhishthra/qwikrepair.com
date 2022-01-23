@@ -12,42 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-.search-wrapper {
-    margin: 15px 55% 35px 0;
-}
-
-.search-bar {
-    margin-top: 3vh;
-    width: 25vw;
-}
-
-.search-text {
-    width: 100%;
-    height: 40px;
-    padding: 5px;
-    border: 1.5px solid white;
-    border-right: 0;
-    border-radius: 6px 0 0 6px;
-    outline: none;
-    transition: 0.2s;
-}
-
-.search-btn {
-    width: fit-content;
-    height: 40px;
-    padding: 0 15px;
-    margin: 0;
-    border: 1.5px solid #94D1EA;
-    border-left: 0;
-    border-radius: 0 6px 6px 0;
-}
-
-.search-bar {
-    border-radius: 6px;
-    transition: 0.2s;
-    box-shadow: 0 0 2px #94D1EA ;
-}
-
 .card-wrapper {
     height: fit-content;
     width: 95%;
