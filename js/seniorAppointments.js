@@ -1,6 +1,35 @@
 searchText = document.getElementById("searchText");
 searchBox = document.getElementById("searchBox");
 
+bookCard = document.getElementById("book-card");
+bookCard.style.visibility = "hidden";
+
+statusCard = document.getElementById("status-card");
+statusCard.style.visibility = "hidden";
+
+reviewCard = document.getElementById("review-card");
+reviewCard.style.visibility = "hidden";
+
+
+
+function showBookCard() {
+    if (bookCard != null) {
+        bookCard.style.visibility = "visible";
+    }
+}
+
+function showStatusCard(){
+    if (statusCard != null) {
+        bookCard.style.visibility = "visible";
+    }
+}
+
+function showReviewCard() {
+    if (reviewCard != null) {
+        reviewCard.style.display = "block";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     let formData = new FormData();
     formData.append("request-type", "getAppointmentDetails");
@@ -15,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (data == 0) {
             generateServiceCards();
         } else {
-            displayAppointmentStatus(data); 
+            showStatusCard(); 
         }
     })
     .catch(err => {
@@ -98,6 +127,3 @@ function starHtml(rate) {
     return html
 }
 
-for (i=0; i < 10; i++) {
-    addServiceCard("src/home.svg", "Plumbing", "John", "I will plumb ur backdoor.")
-}

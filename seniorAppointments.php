@@ -46,22 +46,14 @@
     <div>
         <?php include "template/seniorSideNav.php" ?>
         <div class="content-wrapper">
-            <!-- <div class="search-wrapper">
+            <div class="search-wrapper">
                 <form class="search-bar" id="searchBox">
                     <input type="text" id="searchText" name="searchText" placeholder="Search" class="search-text" id="searchText" onfocus="searchFocus()" onfocusout="searchOutFocus()" placeholder="Search"><br>
                     <input type="submit" value="Submit" class="btn btn-blue search-btn">
                 </form>
             </div>
-            <div id="cardWrapper" class="card-wrapper">
-                <div class="card">
-                    <img class="card-pic" src="src/eye-crossed.svg">
-                    <div class="card-service-name font font-medium">Service</div>
-                    <div class="card-tech-name font">Name</div>
-                    <div class="card-desc font font-small">Descriptions</div>
-                    <div class="btn btn-blue card-btn">Book Now</div>
-                </div>
-            </div> -->
-            <!-- <div class="book-card">
+            <div id="cardWrapper" class="card-wrapper"></div>
+            <div id="book-card" class="book-card">
                 <img src="src/home.svg">
                 <div class="text-wrapper">
                     <div class="font-large service-name">Plumbing</div>
@@ -80,8 +72,8 @@
                         </div>
                     </form>
                 </div>
-            </div> -->
-            <!-- <div class="status-card">
+            </div>
+            <div id="status-card" class="status-card">
                 <img src="src/home.svg">
                 <div class="detail-wrapper">
                     <div class="font-large service-name">Plumbing</div>
@@ -96,7 +88,7 @@
                         <div class="font-small appo-location">Street POS City State</div>
                         <div class="btn btn-blue cancel">Cancel</div>
                     </div>
-                </div>
+                </div> 
                 <div class="progress-wrapper">
                     <div class="step">
                         <div id="num-1" class="num">1</div>
@@ -114,8 +106,8 @@
                         <div class="font-small progress-desc">The appointment has been successfully completed by a technician.</div>
                     </div>
                 </div>
-            </div> -->
-            <div class="review-card">
+            </div>
+            <div id=review-card class="review-card">
                 <img src="src/home.svg">
                 <div class="detail-wrapper">
                     <div class="font-large service-name">Plumbing</div>
@@ -142,12 +134,12 @@
                         <div class="font-small progress-desc">Your appointment has been successfully created. Waiting for the technician's confirmation.</div>
                     </div>
                     <div class="step">
-                        <div id="num-3" class="num">3</div>
+                        <div id="num-3" class="num">2</div>
                         <div class="progress-title">Appointment Confirmed</div>
                         <div class="font-small progress-desc">Your appointment has been accepted by the technician.</div>
                     </div>
                     <div class="step">
-                        <div id="num-4" class="num">4</div>
+                        <div id="num-4" class="num num-active">3</div>
                         <div class="progress-title">Appointment Completed</div>
                         <div class="font-small progress-desc">The appointment has been successfully completed by a technician.</div>
                     </div>
