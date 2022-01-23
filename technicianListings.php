@@ -27,6 +27,18 @@
                     <div class="btn btn-blue">Yes</div>
                 </div>
             </div>
+            <div class="list-add-form">
+                <div class="font-large overlay-t">Add Listing</div>
+                <form class="list-form">
+                    <label class="font-medium form-l">Service Image</label>
+                    <input type="file" accept="image/*" class="service-img-input">
+                    <label class="font-medium form-l">Service Name</label>
+                    <input type="text" class="service-name-input">
+                    <label class="font-medium form-l">Service Description</label>
+                    <input type="text" class="service-desc-input">
+                    <input type="submit" class="btn btn-blue form-submit">
+                </form>
+            </div>
         </div>
     </div>
     <?php include "template/navbarUser.php" ?>
@@ -38,7 +50,7 @@
                     <input type="text" id="searchText" name="searchText" placeholder="Search" class="search-text" id="searchText" onfocus="searchFocus()" onfocusout="searchOutFocus()" placeholder="Search"><br>
                     <input type="submit" value="Submit" class="btn btn-blue search-btn">
                 </form>
-                <div class="btn btn-blue list-add">Add Listing</div>
+                <div id="listAdd" class="btn btn-blue list-add">Add Listing</div>
             </div>
             <div id="cardWrapper" class="card-wrapper">
                 <!-- <div class="card">

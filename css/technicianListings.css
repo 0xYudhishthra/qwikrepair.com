@@ -103,7 +103,7 @@ body {
 }
 
 .overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -121,7 +121,8 @@ body {
     justify-content: center;
 }
 
-.confirm {
+.confirm, .list-add-form{
+    display: none;
     flex-direction: column;
     padding: 50px;
     background-color: white;
@@ -146,3 +147,20 @@ body {
     justify-content: center;
     margin-top: 25px;
 }
+
+.overlay .list-add-form {
+    display: flex;
+}
+
+.list-add-form .list-form {
+    display: block;
+}
+
+.list-form input {
+    margin-bottom: 20px;
+}
+
+.list-form .btn {
+    margin: 0 auto;
+}
+
