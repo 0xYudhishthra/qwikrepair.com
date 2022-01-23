@@ -14,44 +14,44 @@
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/technicianProfile.css">
-    <script src="js/seniorProfile.js" defer></script>
+    <script src="js/technicianProfile.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
     <div>
         <?php include "template/technicianSideNav.php" ?>
         <div class="content-wrapper">
-            <!-- <table class="profile-table">
+            <table class="profile-table" id="profile-table">
                 <tr>
                     <th class="t-pic">Profile Picture</th>
-                    <td class="pic"><img src="src/home.svg"></td> 
+                    <td id="profilePic" class="pic"><img src="src/profile.svg"></td> 
                 </tr>
                 <tr>
                     <th class="t-name">Profile Name</th>
-                    <td class="name">Mary Jane</td> 
+                    <td id="fullName" class="name"></td> 
                 </tr>
                 <tr>
                     <th class="t-email">Email Address</th>
-                    <td class="email">example@mail.com</td> 
+                    <td id="emailAddress" class="email"></td> 
                 </tr>
                 <tr>
                     <th class="t-dob">Date of Birth</th>
-                    <td class="dob">32 Cucumber 1959</td> 
+                    <td id="dob" class="dob"></td> 
                 </tr>
                 <tr>
                     <th class="t-phone">Contact Number</th>
-                    <td class="phone">12 345 6789</td> 
+                    <td id="phoneNumber" class="phone">12 345 6789</td> 
                 </tr>
                 <tr>
                     <th class="t-address">Address</th>
-                    <td class="address">Address awdawdmjpoawmpo powdmpoawmdpomwp wpodmpoawdmpawmdpaw podmawpodmaw</td> 
+                    <td id="homeAddress" class="homeAddress">Address awdawdmjpoawmpo powdmpoawmdpomwp wpodmpoawdmpawmdpaw podmawpodmaw</td> 
                 </tr>
                 <tr>
                     <th></th>
                     <td class="edit"><div class="btn btn-blue edit-btn">Edit</div></td>
                 </tr>   
-            </table> -->
-            <div class="profile-edit">
+            </table>
+            <div class="profile-edit" id="profile-edit">
                 <form class="form">
                     <label class="pic font-medium">Profile Picture</label>
                     <input id="pic" type="file" accept="image/*" class="pic-input">

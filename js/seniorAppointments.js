@@ -14,6 +14,7 @@ searchWrapper = document.getElementById("search-wrapper");
 searchWrapper.style.display = "none";
 
 
+
 function showBookCard() {
     if (bookCard != null) {
         bookCard.style.display = "flex";
@@ -65,31 +66,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 }, {once: true});
 
-//Get book now with input type = submit
-function bookAppointment(serviceName, techName) {
-    var formData = new FormData();
-    formData.append("request-type", "bookAppointment");
-    formData.append("serviceName", serviceName);
-    formData.append("techName", techName);
-    fetch('api/crudHandler.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => {
-        return res.status();
-    })
-    .then(data => {
-        if (data == 1) {
-            window.alert("You have successfully booked an appointment!");
-            window.location.href = "seniorHomepage.php";
-        } else {
-            alert("Failed to book an appointment.");
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
-}
 
 function generateServiceCards() {
     let formData = new FormData();

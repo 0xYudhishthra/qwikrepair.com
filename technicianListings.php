@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/technicianListings.css">
     <script type="text/javascript" src="js/technicianListings.js" defer></script>
+    <script type="text/javascript" src="js/deleteServiceListing.js" defer></script>
 </head>
 <body>
     <div class="overlay">

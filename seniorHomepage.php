@@ -43,9 +43,9 @@
                     <div class="divider"></div>
                     <div class="stat-ctn-wrapper">
                         <div class="stat-detail-wrapper">
-                            <div class="detail-name">Service Name</div>
-                            <div class="detail-date">32 Cucumber 1959</div>
-                            <div class="detail-time">3.15pm</div>
+                            <div class="detail-name" id='detail-name'>Service Name</div>
+                            <div class="detail-date" id='detail-date'>32 Cucumber 1959</div>
+                            <div class="detail-time" id='detail-time'>3.15pm</div>
                         </div>
                         <div class="stat-btn-wrap">
                             <div class="btn btn-white stat-cancel-appo">Cancel</div>

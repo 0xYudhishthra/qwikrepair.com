@@ -43,10 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'getConfir
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'listJobs')
     listJobs($conn);
-if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'acceptAppointment')
-    acceptAppointment($conn);
+
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'submitReview')
     submitReview($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'deleteServiceListing')
+    deleteServiceListing($conn);
 
 //This function is used to sign up a new user.
 function signup($conn){
@@ -468,8 +470,25 @@ function submitReview($conn){
 
 }
 
-function acceptAppointment(){}
+function deleteServiceListing($conn){
+    //Get the email address from the session
+    session_start();
+    $email = $_SESSION['email'];
 
-function rejectAppointment(){}
+    //Create query to delete the service listing from the database.
+    $sql = "DELETE FROM service WHERE userID = (SELECT userID FROM user WHERE emailAddress = '$email')";
+
+    //Execute the query
+    $result = $conn->query($sql);
+
+    //If the query was successful, return 1.
+    if ($result){
+        echo 1;
+    }
+    else {
+        echo 0;
+    }
+
+}
 
 ?>

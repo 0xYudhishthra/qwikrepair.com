@@ -1,6 +1,7 @@
 searchText = document.getElementById("searchText");
 searchBox = document.getElementById("searchBox");
 
+
 document.addEventListener("DOMContentLoaded", function() {
     let formData = new FormData();
     formData.append("request-type", "listService");
@@ -47,7 +48,7 @@ function addJobCard(cardPic, serviceName, serviceDescription, redirectUrl="") {
                 <img class="card-pic" src="${cardPic}">
                 <div class="card-service-name font font-medium">${serviceName}</div>
                 <div class="card-desc font font-small">${serviceDescription}</div>
-                <div class="btn btn-blue card-delete" href=${redirectUrl}>Delete</div>
+                <div id="deleteBtn" class="btn btn-blue card-delete" href=${redirectUrl}>Delete</div>
             </div>
             `
     }
