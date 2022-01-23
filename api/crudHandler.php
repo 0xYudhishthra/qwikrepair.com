@@ -45,7 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'listJobs'
     listJobs($conn);
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'acceptAppointment')
     acceptAppointment($conn);
-
+if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['request-type'] == 'submitReview')
+    submitReview($conn);
 
 //This function is used to sign up a new user.
 function signup($conn){
@@ -407,7 +408,7 @@ function listJobs($conn){
     FROM appointment
     LEFT JOIN service ON appointment.serviceID = service.serviceID
     LEFT JOIN user ON appointment.userID = user.userID
-    WHERE appointment.serviceID = (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user WHERE emailAddress = '$email')) and appointment.appointmentStatus = 1";
+    WHERE appointment.serviceID IN (SELECT serviceID FROM service WHERE userID = (SELECT userID FROM user WHERE emailAddress = '$email')) and appointment.appointmentStatus = 1";
 
     $result = $conn->query($sql);
     if (!empty($result) && $result->num_rows > 0) {
@@ -428,6 +429,12 @@ function listJobs($conn){
     }
 }
 
+function submitReview(){
+    // Get the data from the POST request
+    $review = $_POST['review'];
+
+
+}
 function acceptAppointment(){}
 
 function rejectAppointment(){}

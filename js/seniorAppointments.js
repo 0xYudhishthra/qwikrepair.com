@@ -14,7 +14,6 @@ searchWrapper = document.getElementById("search-wrapper");
 searchWrapper.style.display = "none";
 
 
-
 function showBookCard() {
     if (bookCard != null) {
         bookCard.style.display = "flex";
@@ -35,9 +34,6 @@ function showStatusCard(data){
         }
     }
 }
-
-        
-
 
 function showReviewCard(data) {
     if (reviewCard != null) {
@@ -62,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function() {
             showStatusCard(data); 
         } else 
             generateServiceCards();
+        submitReview(data);
+
+
     })
     .catch(err => {
         console.log(err);
@@ -141,4 +140,3 @@ function starHtml(rate) {
     }
     return html
 }
-
