@@ -1,0 +1,68 @@
+.content-wrapper {
+    height: calc(100vh - 50px);
+    min-width: 80vw;
+    background-color: #F6F8FE;
+    padding: 50px;
+}
+
+.card-wrapper {
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow-y: auto;
+}
+
+.card-wrapper .card {
+    width: 80%;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 6px;
+    transition: 0.2s;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(2, 50%);
+    padding: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px #94D1EA;
+}
+
+.card .user {
+    grid-column: 2 / 6;
+    grid-row: 1 / 2;
+}
+
+.card .user div {
+    margin-left: 15px;
+    display: block;
+}
+
+.card .review-star {
+    grid-column: 8 / 10;
+    grid-row: 1 / 2;
+}
+
+.card .review-desc {
+    grid-column: 2 / 10;
+    grid-row: 2 / -1;
+    width: 100%;
+    height: 90%;
+    white-space: normal;
+    overflow: auto;
+    display: block;
+}
+
+.card .user img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.card .review-star .star img {
+    width: 100%;
+}
+
+.card .review-star .star {
+    width: 20px;
+    margin: 0 3px;
+}
