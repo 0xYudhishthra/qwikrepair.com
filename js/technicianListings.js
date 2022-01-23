@@ -47,8 +47,7 @@ function addJobCard(cardPic, serviceName, serviceDescription, redirectUrl="") {
                 <img class="card-pic" src="${cardPic}">
                 <div class="card-service-name font font-medium">${serviceName}</div>
                 <div class="card-desc font font-small">${serviceDescription}</div>
-                <a class="btn btn-blue card-btn-edit" href=${redirectUrl}>Edit</a>
-                <a class="btn btn-blue card-btn-delete" href=${redirectUrl}>Delete</a>
+                <div class="btn btn-blue card-delete" href=${redirectUrl}>Delete</div>
             </div>
             `
     }

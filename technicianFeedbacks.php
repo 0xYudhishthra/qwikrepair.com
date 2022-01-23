@@ -14,15 +14,15 @@
     <link type="text/css" rel="stylesheet" href="css/navbarUser.css">
     <link type="text/css" rel="stylesheet" href="css/sideNav.css">
     <link type="text/css" rel="stylesheet" href="css/technicianFeedbacks.css">
-    <script src="js/seniorHistory.js" defer></script>
+    <script src="js/technicianFeedback.js" defer></script>
 </head>
 <body>
     <?php include "template/navbarUser.php" ?>
     <div>
         <?php include "template/technicianSideNav.php"?>
         <div class="content-wrapper">
-            <div class="card-wrapper">
-                <div class="card">
+            <div id="cardWrapper" class="card-wrapper">
+                <!-- <div class="card">
                     <div class="user">
                         <img src="src/home.svg">
                         <div>
@@ -38,7 +38,7 @@
                         <div class="star"><img src="src/star-empty.svg"></div>
                     </div>
                     <div class="review-desc">Example example example example example.</div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
