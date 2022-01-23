@@ -2,31 +2,34 @@ searchText = document.getElementById("searchText");
 searchBox = document.getElementById("searchBox");
 
 bookCard = document.getElementById("book-card");
-bookCard.style.visibility = "hidden";
+bookCard.style.display = "none";
 
 statusCard = document.getElementById("status-card");
-statusCard.style.visibility = "hidden";
+statusCard.style.display = "none";
 
 reviewCard = document.getElementById("review-card");
-reviewCard.style.visibility = "hidden";
+reviewCard.style.display = "none";
+
+searchWrapper = document.getElementById("search-wrapper");
+searchWrapper.style.display = "none";
 
 
 
 function showBookCard() {
     if (bookCard != null) {
-        bookCard.style.visibility = "visible";
+        bookCard.style.display = "flex";
     }
 }
 
 function showStatusCard(){
     if (statusCard != null) {
-        bookCard.style.visibility = "visible";
+        statusCard.style.display = "flex";
     }
 }
 
 function showReviewCard() {
     if (reviewCard != null) {
-        reviewCard.style.display = "block";
+        reviewCard.style.display = "flex";
     }
 }
 
@@ -44,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (data == 0) {
             generateServiceCards();
         } else {
-            showStatusCard(); 
+            showStatusCard(data); 
         }
     })
     .catch(err => {

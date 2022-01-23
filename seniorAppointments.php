@@ -46,7 +46,7 @@
     <div>
         <?php include "template/seniorSideNav.php" ?>
         <div class="content-wrapper">
-            <div class="search-wrapper">
+            <div id="search-wrapper" class="search-wrapper">
                 <form class="search-bar" id="searchBox">
                     <input type="text" id="searchText" name="searchText" placeholder="Search" class="search-text" id="searchText" onfocus="searchFocus()" onfocusout="searchOutFocus()" placeholder="Search"><br>
                     <input type="submit" value="Submit" class="btn btn-blue search-btn">
