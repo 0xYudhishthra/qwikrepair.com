@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <td class="edit"><div class="btn btn-blue edit-btn">Edit</div></td>
+                    <td class="edit"><div id="editBtn" class="btn btn-blue edit-btn">Edit</div></td>
                 </tr>   
             </table>
             <div id="profile-edit" class="profile-edit">
@@ -74,7 +74,7 @@
                     </div> 
                     <input id="state" type="text" class="state-address-input" placeholder="State">
                     <div class="button">
-                        <div class="btn btn-white cancel">Cancel</div>
+                        <div id="cancelBtn" class="btn btn-white cancel">Cancel</div>
                         <input type="submit" class="btn btn-blue submit">
                     </div>
                 </form>

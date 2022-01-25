@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 22, 2022 at 06:55 PM
+-- Generation Time: Jan 23, 2022 at 02:44 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   `appointmentID` int NOT NULL AUTO_INCREMENT,
   `appointmentDate` date NOT NULL,
   `appointmentTime` time NOT NULL,
-  `appointmentStatus` int NOT NULL,
+  `appointmentStatus` int NOT NULL DEFAULT '1',
   `street` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `state` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -42,15 +42,14 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   PRIMARY KEY (`appointmentID`),
   KEY `serviceID` (`serviceID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `appointment`
 --
 
 INSERT INTO `appointment` (`appointmentID`, `appointmentDate`, `appointmentTime`, `appointmentStatus`, `street`, `city`, `state`, `postcode`, `serviceID`, `userID`) VALUES
-(1, '2020-01-23', '12:01:00', 0, 'Setiawangsa', 'KL', 'WPKL', 54200, 1, 9),
-(2, '2020-01-21', '07:01:00', 0, 'Setiawangsa', 'KL', 'WPKL', 54200, 1, 9);
+(12, '2022-01-05', '17:53:09', 4, 'Persiaran Bukit Amalina', 'Kuala Lumpur', 'Wilayah Persekutuan Kuala Lumpur', 54200, 6, 9);
 
 -- --------------------------------------------------------
 
@@ -66,14 +65,14 @@ CREATE TABLE IF NOT EXISTS `service` (
   `userID` int NOT NULL,
   PRIMARY KEY (`serviceID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `service`
 --
 
 INSERT INTO `service` (`serviceID`, `serviceName`, `serviceDescription`, `userID`) VALUES
-(1, 'Electronic Repair', 'I can repair electronics', 11);
+(6, 'Wall Repair', 'I provide the best wall repair service, have expertise of over 5 years!', 11);
 
 -- --------------------------------------------------------
 
@@ -89,14 +88,14 @@ CREATE TABLE IF NOT EXISTS `service_review` (
   `appointmentID` int NOT NULL,
   PRIMARY KEY (`reviewID`),
   KEY `appointmentID` (`appointmentID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `service_review`
 --
 
 INSERT INTO `service_review` (`reviewID`, `reviewFeedback`, `reviewRating`, `appointmentID`) VALUES
-(1, 'veli good', 3, 1);
+(24, 'The wall repair service is the best, will definitely book an appointment again!', 3, 12);
 
 -- --------------------------------------------------------
 
@@ -112,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `city` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `state` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `postcode` int DEFAULT NULL,
-  `profilePicture` longblob,
+  `profilePicture` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phoneNumber` int DEFAULT NULL,
   `emailAddress` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -127,8 +126,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`userID`, `role`, `street`, `city`, `state`, `postcode`, `profilePicture`, `phoneNumber`, `emailAddress`, `password`, `DOB`, `firstName`, `lastName`) VALUES
-(9, 'senior', 'Setiawangsa', 'KL', 'KL', 54200, NULL, 132083324, 'gg@gmail.com', '$2y$10$wrXYBQPoYxRgEN92jLoN6e/DK1dRsmTjVkQivGVMaf07HwF.Th/k.', '2022-01-13', 'Yudhish', 'M'),
-(11, 'technician', NULL, NULL, NULL, NULL, NULL, NULL, 'technician@gmail.com', '$2y$10$ozAJ6Ca.aGE8m5BzAcFZSO6ZsSNPEN5oFjFgAGgewR6yAsfcUY0Au', NULL, 'Ali', 'Khan');
+(9, 'senior', 'Persiaran Bukit Amalina', 'Kuala Lumpur', 'Wilayah Persekutuan Kuala Lumpur', 54200, 'abuBakar', 132083324, 'abu@gmail.com', '$2y$10$wrXYBQPoYxRgEN92jLoN6e/DK1dRsmTjVkQivGVMaf07HwF.Th/k.', '1970-12-14', 'Abu ', 'Bakar'),
+(11, 'technician', 'Persiaran Bukit Changkat', 'Cheras', 'Selangor', 45600, 'aliKhan', 145679988, 'ali@gmail.com', '$2y$10$ozAJ6Ca.aGE8m5BzAcFZSO6ZsSNPEN5oFjFgAGgewR6yAsfcUY0Au', '1996-01-06', 'Ali', 'Khan');
 
 --
 -- Constraints for dumped tables
